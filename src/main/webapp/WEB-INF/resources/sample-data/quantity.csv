@@ -1,0 +1,17 @@
+key,quantity,unity,key:recipe,key:ingredient
+quantity-01,2,spoon,recipe-01,ingredient-01
+quantity-02,20,gram,recipe-01,ingredient-02
+quantity-03,2,spoon,recipe-02,ingredient-03
+quantity-04,21,gram,recipe-02,ingredient-04
+quantity-05,2,spoon,recipe-02,ingredient-05
+quantity-06,3,spoon,recipe-03,ingredient-06
+quantity-07,38,gram,recipe-04,ingredient-02
+quantity-08,2,spoon,recipe-04,ingredient-03
+quantity-09,1,spoon,recipe-05,ingredient-01
+quantity-10,20,gram,recipe-05,ingredient-02
+quantity-11,9,gram,recipe-05,ingredient-03
+quantity-12,65,gram,recipe-06,ingredient-03
+quantity-13,2,spoon,recipe-07,ingredient-03
+quantity-14,50,gram,recipe-07,ingredient-04
+quantity-15,18,gram,recipe-08,ingredient-06
+quantity-16,12,gram,recipe-09,ingredient-04

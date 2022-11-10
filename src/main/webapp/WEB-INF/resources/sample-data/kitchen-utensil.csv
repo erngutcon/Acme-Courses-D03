@@ -1,0 +1,7 @@
+key,name,code,description,retail-price,link,publish
+kitchen-utensil-01,KitchenUtensil1,KU:AAA-001,KitchenUtensil1,USD 3.0,https://www.kitchen-utensil.com,false
+kitchen-utensil-02,KitchenUtensil2,KU:AAA-002,KitchenUtensil2,GBP 6.4,https://www.kitchen-utensil.com,false
+kitchen-utensil-03,KitchenUtensil3,KU:AAA-003,KitchenUtensil3,EUR 9.1,https://www.kitchen-utensil.com,true
+kitchen-utensil-04,KitchenUtensil4,KU:AAA-004,KitchenUtensil4,GBP 3.7,https://www.kitchen-utensil.com,false
+kitchen-utensil-05,KitchenUtensil5,KU:AAA-005,KitchenUtensil5,USD 2.9,https://www.kitchen-utensil.com,true
+kitchen-utensil-06,KitchenUtensil7,KU:AAA-006,KitchenUtensil7,EUR 4.2,https://www.kitchen-utensil.com,true

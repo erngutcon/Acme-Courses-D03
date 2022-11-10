@@ -1,0 +1,11 @@
+   _____                                 __________              .__                      
+  /  _  \   ____   _____   ____          \______   \ ____   ____ |__|_____   ____   ______
+ /  /_\  \_/ ___\ /     \_/ __ \   ______ |       _// __ \_/ ___\|  \____ \_/ __ \ /  ___/
+/    |    \  \___|  Y Y  \  ___/  /_____/ |    |   \  ___/\  \___|  |  |_> >  ___/ \___ \ 
+\____|__  /\___  >__|_|  /\___  >         |____|_  /\___  >\___  >__|   __/ \___  >____  >
+        \/     \/      \/     \/                 \/     \/     \/   |__|        \/     \/
+        
+Application:          ${acme.application-name}
+Application endpoint: http://localhost:${server.port}${server.servlet.contextPath}
+Database endpoint:    ${spring.datasource.url}
+Powered by:           Spring Boot ${spring-boot.version}, Acme Framework ${acme.version}

@@ -1,0 +1,10 @@
+key,code,heading,description,preparation-notes,link,key:chef
+recipe-01,RE:AAA-001,Recipe,The Good Recipe,Notes,https://www.recipe1.com,chef-01
+recipe-02,RE:AAA-002,Recipe,The Bad Recipe,Notes,https://www.recipe2.com,chef-01
+recipe-03,RE:AAA-003,Recipe,The Regular Recipe,Notes,https://www.recipe3.com,chef-01
+recipe-04,RE:AAA-004,Recipe,The Good Recipe,Notes,https://www.recipe4.com,chef-01
+recipe-05,RE:AAA-005,Recipe,The Bad Recipe,Notes,https://www.recipe5.com,chef-01
+recipe-06,RE:AAA-006,Recipe,The Regular Recipe,Notes,https://www.recipe6.com,chef-02
+recipe-07,RE:AAA-007,Recipe,The Good Recipe,Notes,https://www.recipe7.com,chef-02
+recipe-08,RE:AAA-008,Recipe,The Regular Recipe,Notes,https://www.recipe8.com,chef-02
+recipe-09,RE:AAA-009,Recipe,The Bad Recipe,Notes,https://www.recipe9.com,chef-02

@@ -1,0 +1,7 @@
+key,name,code,description,retail-price,link,publish
+ingredient-01,Lettuce,IN:AAA-001,Lettuce,USD 1.1,https://www.ingredient.com,false
+ingredient-02,Tomato,IN:AAA-002,Tomato,GBP 1.0,https://www.ingredient.com,false
+ingredient-03,Orange,IN:AAA-003,Orange,EUR 0.8,https://www.ingredient.com,true
+ingredient-04,Pepper,IN:AAA-004,Pepper,GBP 1.7,https://www.ingredient.com,false
+ingredient-05,Salt,IN:AAA-005,Salt,USD 1.3,https://www.ingredient.com,true
+ingredient-06,Onion,IN:AAA-006,Onion,EUR 1.0,https://www.ingredient.com,true
