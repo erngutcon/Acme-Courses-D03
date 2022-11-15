@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
+package acme.features.authenticated.post;
 
 import javax.annotation.PostConstruct;
 
@@ -18,21 +18,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.Bulletin;
+import acme.entities.Post;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/bulletin/")
-public class AuthenticatedBulletinController extends AbstractController<Authenticated, Bulletin> {
+@RequestMapping("/authenticated/post/")
+public class AuthenticatedPostController extends AbstractController<Authenticated, Post> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedBulletinListService	listService;
+	protected AuthenticatedPostListService	listService;
 	
 	@Autowired
-	protected AuthenticatedBulletinShowService	showService;
+	protected AuthenticatedPostShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 

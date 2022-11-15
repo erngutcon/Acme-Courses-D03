@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 import acme.checker.SpamChecker;
 import acme.entities.Bulletin;
 import acme.entities.Configuration;
-import acme.features.authenticated.bulletin.AuthenticatedBulletinRepository;
+import acme.features.authenticated.post.AuthenticatedPostRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -34,7 +34,7 @@ public class AdministratorBulletinCreateService implements AbstractCreateService
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedBulletinRepository repository;
+	protected AuthenticatedPostRepository repository;
 	
 	@Autowired
 	protected SpamChecker checker;

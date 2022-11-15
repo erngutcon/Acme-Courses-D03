@@ -10,25 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
+package acme.features.authenticated.post;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Bulletin;
 import acme.entities.Configuration;
+import acme.entities.Post;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedBulletinRepository extends AbstractRepository {
+public interface AuthenticatedPostRepository extends AbstractRepository {
 
-	@Query("select a from Bulletin a where a.id = :id")
-	Bulletin findOneBulletinById(int id);
+	@Query("select a from Post a where a.id = :id")
+	Post findOnePostById(int id);
 	
-	@Query("select a from Bulletin a where TO_DAYS(current_date()) - TO_DAYS(a.instantiationMoment) < 730")
-	Collection<Bulletin> findAllBulletins();
+	@Query("select a from Post a where TO_DAYS(current_date()) - TO_DAYS(a.instantiationMoment) < 730")
+	Collection<Post> findAllPosts();
 	
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();

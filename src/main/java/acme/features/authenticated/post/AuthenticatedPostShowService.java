@@ -1,5 +1,5 @@
 /*
- * AnyDutyListService.java
+ * AnyDutyShowService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,52 +10,55 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
-
-import java.util.Collection;
+package acme.features.authenticated.post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Bulletin;
+import acme.entities.Post;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedBulletinListService implements AbstractListService<Authenticated, Bulletin> {
+public class AuthenticatedPostShowService implements AbstractShowService<Authenticated, Post> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedBulletinRepository repository;
+	protected AuthenticatedPostRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Bulletin> request) {
+	public boolean authorise(final Request<Post> request) {
 		assert request!=null;
+		
 		return true;
 	}
 
 	@Override
-	public Collection<Bulletin> findMany(final Request<Bulletin> request) {
+	public Post findOne(final Request<Post> request) {
 		assert request!=null;
 		
-		Collection<Bulletin> result;
+		Post result;
+		int id;
 		
-		result = this.repository.findAllBulletins();
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOnePostById(id);
 		
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<Bulletin> request, final Bulletin entity, final Model model) {
+	public void unbind(final Request<Post> request, final Post entity, final Model model) {
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "instantiationMoment","heading","text","flag","link");
+		request.unbind(entity, model, "instantiationMoment","caption","message","flag","hyperlink");
+		
 	}
 
+	
 
 }
