@@ -18,15 +18,12 @@
 	uri="http://www.springframework.org/security/tags"%>
 
 <acme:list>
-<acme:list-column code="authenticated.bulletin.list.label.heading" path="heading"
+<acme:list-column code="authenticated.post.list.label.caption" path="caption"
 		width="50%" />
-	<acme:list-column code="authenticated.bulletin.list.label.instantiation-moment"
+	<acme:list-column code="authenticated.post.list.label.instantiation-moment"
 		path="instantiationMoment" width="20%" />
-	<acme:list-column code="authenticated.bulletin.list.label.text" path="text"
+	<acme:list-column code="authenticated.post.list.label.message" path="message"
 		width="20%" />
 </acme:list>
 
-<sec:authorize access="hasRole('Administrator')">
-	<acme:button code="administrator.bulletin.list.button.create"
-			action="/administrator/bulletin/create"/>
-</sec:authorize>
+

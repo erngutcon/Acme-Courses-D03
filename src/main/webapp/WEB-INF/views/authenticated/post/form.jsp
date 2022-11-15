@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-moment code="authenticated.bulletin.form.label.instantiation-moment" path="instantiationMoment"/>
-	<acme:input-textbox code="authenticated.bulletin.form.label.heading" path="heading"/>
-	<acme:input-textarea code="authenticated.bulletin.form.label.text" path="text"/>
-	<acme:input-textbox code="authenticated.bulletin.form.label.flag" path="flag"/>
-	<acme:input-textbox code="authenticated.bulletin.form.label.link" path="link"/>
+	<acme:input-moment code="authenticated.post.form.label.instantiation-moment" path="instantiationMoment"/>
+	<acme:input-textbox code="authenticated.post.form.label.caption" path="caption"/>
+	<acme:input-textarea code="authenticated.post.form.label.message" path="message"/>
+	<acme:input-textbox code="authenticated.post.form.label.flag" path="flag"/>
+	<acme:input-textbox code="authenticated.post.form.label.hyperlink" path="hyperlink"/>
 </acme:form>
