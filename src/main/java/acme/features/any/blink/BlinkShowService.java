@@ -1,5 +1,5 @@
 /*
- * AnyDutyListService.java
+ * AnyDutyShowService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,51 +10,56 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.chirp;
-
-import java.util.Collection;
+package acme.features.any.blink;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Chirp;
+import acme.entities.Blink;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class ChirpListService implements AbstractListService<Any, Chirp> {
+public class BlinkShowService implements AbstractShowService<Any, Blink> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ChirpRepository repository;
+	protected BlinkRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Chirp> request) {
+	public boolean authorise(final Request<Blink> request) {
 		assert request!=null;
+		
 		return true;
 	}
 
 	@Override
-	public Collection<Chirp> findMany(final Request<Chirp> request) {
+	public Blink findOne(final Request<Blink> request) {
 		assert request!=null;
 		
-		Collection<Chirp> result;
+		Blink result;
+		int id;
 		
-		result = this.repository.findAllChirps();
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneBlinkById(id);
 		
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<Chirp> request, final Chirp entity, final Model model) {
+	public void unbind(final Request<Blink> request, final Blink entity, final Model model) {
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "creationMoment","heading","author","body","email");
+		request.unbind(entity, model, "instantiationMoment","caption","author","message","email");
+		model.setAttribute("confirmation", false);
+		model.setAttribute("readonly", true);
+		model.setAttribute("showmoment", true);
+		
 	}
 
 

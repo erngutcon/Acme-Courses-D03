@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.chirp;
+package acme.features.any.blink;
 
 import javax.annotation.PostConstruct;
 
@@ -18,24 +18,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.Chirp;
+import acme.entities.Blink;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
 @Controller
-@RequestMapping("/any/chirp/")
-public class ChirpController extends AbstractController<Any, Chirp> {
+@RequestMapping("/any/blink/")
+public class BlinkController extends AbstractController<Any, Blink> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ChirpListService	listService;
+	protected BlinkListService	listService;
 	
 	@Autowired
-	protected ChirpShowService	showService;
+	protected BlinkShowService	showService;
 	
-	@Autowired
-	protected ChirpCreateService createService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -44,7 +42,6 @@ public class ChirpController extends AbstractController<Any, Chirp> {
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
-		super.addCommand("create", this.createService);
 	}
 
 }
