@@ -1,4 +1,4 @@
-package acme.features.any.theoryTutorials;
+package acme.features.any.labTutorial;
 /*
  * AnyDutyController.java
  *
@@ -18,21 +18,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.TheoryTutorial;
+import acme.entities.LabTutorial;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
 @Controller
-@RequestMapping("/any/theoryTutorial/")
-public class AnyTheoryTutorialController extends AbstractController<Any, TheoryTutorial> {
+@RequestMapping("/any/lab-tutorial/")
+public class AnyLabTutorialController extends AbstractController<Any, LabTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyTheoryTutoriaslListService	listService;
+	protected AnyLabTutorialListService	listService;
 	
 	@Autowired
-	protected AnyTheoryTutorialShowService	showService;
+	protected AnyLabTutorialShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 

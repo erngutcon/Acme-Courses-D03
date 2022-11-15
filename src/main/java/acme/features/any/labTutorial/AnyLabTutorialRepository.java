@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.theoryTutorials;
+package acme.features.any.labTutorial;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,20 +18,20 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.TheoryTutorial;
+import acme.entities.LabTutorial;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnyTheoryTutoriaslRepository extends AbstractRepository {
+public interface AnyLabTutorialRepository extends AbstractRepository {
 
-	@Query("select i from TheoryTutorial i where i.id = :id")
-	TheoryTutorial findOneTheoryTutorialById(int id);
+	@Query("select i from LabTutorial i where i.id = :id")
+	LabTutorial findOneLabTutorialById(int id);
 	
-	@Query("select i from TheoryTutorial i")
-	List<TheoryTutorial> findAllTheoryTutorials();
+	@Query("select i from LabTutorial i")
+	List<LabTutorial> findAllLabTutorials();
 
-	@Query("select i from Course c, Register r, TheoryTutorial i where t.id = q.toolkit.id and q.theoryTutorial.id = i.id and t.id = :id")
-	Collection<TheoryTutorial> findManyTheoryTutorialsByCourseId(int id);
+	@Query("select i from Course c, Register r, LabTutorial i where t.id = r.course.id and r.labTutorial.id = i.id and t.id = :id")
+	Collection<LabTutorial> findManyLabTutorialsByCourseId(int id);
 	
 	
 }
