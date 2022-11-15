@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Ingredient extends AbstractEntity {
+public class TheoryTutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,25 +27,25 @@ public class Ingredient extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			name;
+	@Length(max = 75)
+	protected String			title;
 
+	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}$")
-	protected String			code;
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(:[A-Z]{1,10})?$")
+	protected String			ticker;
 
 	@NotBlank
 	@Length(max = 255)
-	protected String			description;
+	protected String			abstractText;
 
 	@NotNull
 	@Valid
-	protected Money				retailPrice;
+	protected Money				cost;
 
 	@URL
-	protected String			link;
+	protected String			hyperlink;
 
-	protected boolean			publish;
 
 	// Derived attributes -----------------------------------------------------
 

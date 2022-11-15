@@ -1,6 +1,6 @@
 package acme.entities;
 
 
-public enum StatusFineDish {
+public enum StatusHelpRequest {
 	PROPOSED, ACCEPTED, DENIED
 }

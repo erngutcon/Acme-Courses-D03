@@ -10,13 +10,15 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Learner;
+import acme.roles.Teacher;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Memorandum extends AbstractEntity {
+public class HelpRequest extends AbstractEntity {
 	
 	// Serialisation identifier -----------------------------------------------
 	
@@ -32,29 +34,48 @@ public class Memorandum extends AbstractEntity {
 	
 	// Attributes -------------------------------------------------------------
 	
+	@NotNull
+	protected StatusHelpRequest status;
+
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^([A-Z]{2}:)?[A-Z]{3}-[0-9]{3}\\:[0-9]{4}$")
-	protected String sequenceNumber;
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(:[A-Z]{1,10})?$")
+	protected String ticker;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	@NotNull
-	protected Date creationMoment;
-	
 	@NotBlank
 	@Length(max = 255)
-	protected String report;
+	protected String statement;
+
+	@NotNull
+	@Valid
+	protected Money budget; 
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date creationMoment;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date initDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date finishDate;
 	
 	@URL
-	protected String link;
+	protected String hyperlink;
 	
-	// Derived attributes -----------------------------------------------------
+	protected boolean published;
 	
 	// Relationships ----------------------------------------------------------
 	
-	@NotNull
 	@Valid
+	@NotNull
 	@ManyToOne(optional=false)
-	protected FineDish fineDish;
+	protected Learner learner;
+	
+	@Valid
+	@NotNull
+	@ManyToOne(optional=false)
+	protected Teacher teacher;
 }

@@ -8,29 +8,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AdministratorDashboard implements Serializable {
+public class LearnerDashboard implements Serializable {
 
 	private static final long	serialVersionUID	= 1L;
-
-	Integer						totalNumberOfTheoryTutorials;
-
-	List<Object>						averageCostOfTheoryTutorials;
-
-	List<Object>						deviationCostOfTheoryTutorials;
-
-	List<Object>						minimumCostOfTheoryTutorials;
-
-	List<Object>						maximumCostOfTheoryTutorials;
-
-	Integer						totalNumberOfLabTutorials;
-
-	List<Object>						averageCostOfLabTutorials;
-
-	List<Object>						deviationCostOfLabTutorials;
-
-	List<Object>						minimumCostOfLabTutorials;
-
-	List<Object>						maximumCostOfLabTutorials;
 
 	Integer						totalNumberOfProposedHelpRequests;
 

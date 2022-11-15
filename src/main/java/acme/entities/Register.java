@@ -37,11 +37,11 @@ public class Quantity extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional=false)
-	protected Recipe recipe;
+	protected Course recipe;
 	
 	@NotNull
 	@Valid
 	@ManyToOne(optional=false)
-	protected Ingredient ingredient;
+	protected TheoryTutorial ingredient;
 
 }

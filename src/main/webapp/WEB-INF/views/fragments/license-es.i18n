@@ -17,4 +17,3 @@ master.license.text = \
 	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
 	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
 	local de su navegador para saber dónde tienen que ir algunos botones. \
-	Esto es una personalización requerida en la lección S06 - The Starter Project(Laboratory).
