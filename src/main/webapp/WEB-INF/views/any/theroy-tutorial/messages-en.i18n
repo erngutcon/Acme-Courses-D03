@@ -8,10 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.duty.form.label.title = Title:
-any.duty.form.label.description = Description:
-any.duty.form.label.work-load = Work load:
-any.duty.form.label.moreInfo = More info: (Optional)
+any.theory-tutorial.form.label.ticker = Ticker:
+any.theory-tutorial.form.label.title = Title:
+any.theory-tutorial.form.label.abstractText = Abstract text:
+any.theory-tutorial.form.label.cost = Cost:
+any.theory-tutorial.form.label.hyperlink = Hyperlink: 
 
-any.duty.list.label.title = Title
-any.duty.list.label.work-load = Work load
+any.theory-tutorial.list.label.title = Title
+any.theory-tutorial.list.label.abstractText = Abstract text
