@@ -4,15 +4,15 @@
 #
 # In keeping with the traditional purpose of furthering education and research, it is
 # the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+# this software. It has been tested carefully, but it is not guaranteed for teacher particular
+# purposes.  The copyright owner does not offer teacher warranties or representations, nor do
+# they accept teacher liabilities with respect to them.
 
-any.theory-tutorial.form.label.ticker = Ticker:
-any.theory-tutorial.form.label.caption = Title:
-any.theory-tutorial.form.label.abstractText = Abstract text:
-any.theory-tutorial.form.label.cost = Cost:
-any.theory-tutorial.form.label.hyperlink = Hyperlink: 
+teacher.theory-tutorial.form.label.ticker = Ticker:
+teacher.theory-tutorial.form.label.caption = Title:
+teacher.theory-tutorial.form.label.abstractText = Abstract text:
+teacher.theory-tutorial.form.label.cost = Cost:
+teacher.theory-tutorial.form.label.hyperlink = Hyperlink: 
 
-any.theory-tutorial.list.label.caption = Title
-any.theory-tutorial.list.label.abstractText = Abstract text
+teacher.theory-tutorial.list.label.caption = Title
+teacher.theory-tutorial.list.label.abstractText = Abstract text
