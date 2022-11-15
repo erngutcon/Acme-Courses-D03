@@ -1,5 +1,5 @@
 <%--
-- list.jsp
+- form.jsp
 -
 - Copyright (C) 2012-2022 Rafael Corchuelo.
 -
@@ -15,13 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:list>
-<acme:list-column code="any.chirp.list.label.title" path="title"
-		width="50%" />
-	<acme:list-column code="any.chirp.list.label.creation-moment"
-		path="creationMoment" width="20%" />
-	<acme:list-column code="any.chirp.list.label.author" path="author"
-		width="20%" />
-</acme:list>
-
-<acme:button code="any.chirp.list.button.create" action="/any/chirp/create"/>
+<acme:form readonly="${readonly}">
+	<acme:input-textbox code="any.blink.form.label.caption" path="caption"/>
+	<acme:input-textbox code="any.blink.form.label.author" path="author"/>
+	<acme:input-textarea code="any.blink.form.label.message" path="message"/>
+	<acme:input-textbox code="any.blink.form.label.email" path="email"/>
+	<acme:input-moment code="any.blink.form.label.instantiation-moment" path="instantiationMoment"/>
+	
+</acme:form>

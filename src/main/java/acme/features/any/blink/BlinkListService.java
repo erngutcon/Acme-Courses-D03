@@ -1,5 +1,5 @@
 /*
- * AnyDutyShowService.java
+ * AnyDutyListService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,56 +10,51 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.chirp;
+package acme.features.any.blink;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Chirp;
+import acme.entities.Blink;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class ChirpShowService implements AbstractShowService<Any, Chirp> {
+public class BlinkListService implements AbstractListService<Any, Blink> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ChirpRepository repository;
+	protected BlinkRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Chirp> request) {
+	public boolean authorise(final Request<Blink> request) {
 		assert request!=null;
-		
 		return true;
 	}
 
 	@Override
-	public Chirp findOne(final Request<Chirp> request) {
+	public Collection<Blink> findMany(final Request<Blink> request) {
 		assert request!=null;
 		
-		Chirp result;
-		int id;
+		Collection<Blink> result;
 		
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneChirpById(id);
+		result = this.repository.findAllBlinks();
 		
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<Chirp> request, final Chirp entity, final Model model) {
+	public void unbind(final Request<Blink> request, final Blink entity, final Model model) {
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "creationMoment","heading","author","body","email");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", true);
-		model.setAttribute("showmoment", true);
-		
+		request.unbind(entity, model, "instantiationMoment","caption","author","message","email");
 	}
 
 

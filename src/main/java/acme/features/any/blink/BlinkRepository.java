@@ -10,25 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.chirp;
+package acme.features.any.blink;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.Chirp;
+import acme.entities.Blink;
 import acme.entities.Configuration;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface ChirpRepository extends AbstractRepository {
+public interface BlinkRepository extends AbstractRepository {
 
-	@Query("select c from Chirp c where c.id = :id")
-	Chirp findOneChirpById(int id);
+	@Query("select c from Blink c where c.id = :id")
+	Blink findOneBlinkById(int id);
 	
-	@Query("select c from Chirp c where TO_DAYS(current_date()) - TO_DAYS(c.creationMoment) < 30")
-	Collection<Chirp> findAllChirps();
+	@Query("select c from Blink c where TO_DAYS(current_date()) - TO_DAYS(c.instanttiationMoment) < 30")
+	Collection<Blink> findAllBlinks();
 	
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
