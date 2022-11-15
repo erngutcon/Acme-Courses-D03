@@ -2,6 +2,7 @@ package acme.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Quantity extends AbstractEntity {
+public class Register extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -23,9 +24,10 @@ public class Quantity extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotNull
 	@Positive
 	@Min(1)
-	private Integer quantity;
+	private Integer learningTime;
 	
 	@NotBlank
 	private String unity;
@@ -37,11 +39,17 @@ public class Quantity extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional=false)
-	protected Course recipe;
+	protected Course course;
 	
 	@NotNull
 	@Valid
-	@ManyToOne(optional=false)
-	protected TheoryTutorial ingredient;
+	@OneToOne(optional=true)
+	protected TheoryTutorial theoryTutorial;
+	
+	@NotNull
+	@Valid
+	@OneToOne(optional=true)
+	protected LabTutorial labTutorial;
+
 
 }
