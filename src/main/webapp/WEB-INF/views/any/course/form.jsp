@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-<acme:input-textbox code="any.course.form.label.ticker" path="ticker"/>
+<acme:input-textbox readonly="true" code="any.course.form.label.ticker" path="ticker"/>
 	<acme:input-textbox code="any.course.form.label.caption" path="caption"/>
 	<acme:input-textbox code="any.course.form.label.abstractText" path="abstractText"/>
 	<acme:input-textbox code="any.course.form.label.cost" path="cost"/>

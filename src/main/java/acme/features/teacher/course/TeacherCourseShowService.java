@@ -1,4 +1,4 @@
-package acme.features.any.course;
+package acme.features.teacher.course;
 
 import java.util.Collection;
 
@@ -12,40 +12,49 @@ import acme.features.any.labTutorial.AnyLabTutorialRepository;
 import acme.features.any.theoryTutorial.AnyTheoryTutorialRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
+import acme.roles.Teacher;
 
 @Service
-public class AnyCourseShowService implements AbstractShowService<Any, Course>{
+public class TeacherCourseShowService implements AbstractShowService<Teacher, Course> {
 
-	
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected TeacherCourseRepository repository;
 	
 	@Autowired
 	protected AnyLabTutorialRepository labTutorialRepository;
 	
 	@Autowired
 	protected AnyTheoryTutorialRepository theoryTutorialRepository;
-	
+
 	@Override
 	public boolean authorise(final Request<Course> request) {
 		assert request != null;
+
+		boolean result;
+		int id;
+		Course item;
 		
-		return true;
+		id = request.getModel().getInteger("id");
+		item = this.repository.findOneCourseById(id);
+		result = item != null && this.repository.findTeacherByCourseId(id) == request.getPrincipal().getActiveRoleId();
+
+		return result;
 	}
 
 	@Override
 	public Course findOne(final Request<Course> request) {
 		assert request != null;
-		
-		Course result;
+
 		int id;
+		Course result;
+		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneCourseById(id);
+
 		return result;
 	}
-
+	
 	@Override
 	public void unbind(final Request<Course> request, final Course entity, final Model model) {
 		assert request != null;
@@ -76,10 +85,5 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 		
 		model.setAttribute("existsLabTutorial", existsLabTutorial);
 		model.setAttribute("existstheoryTutorial", existsTheoryTutorial);
-		
-		
-		
-		
 	}
-
 }
