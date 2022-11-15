@@ -1,5 +1,5 @@
 /*
- * AnyDutyListService.java
+ * AnyDutyShowService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,58 +10,53 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.item;
-
-import java.util.Collection;
+package acme.features.any.theoryTutorials;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Item;
+import acme.entities.TheoryTutorial;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyItemListService implements AbstractListService<Any, Item> {
+public class AnyTheoryTutorialShowService implements AbstractShowService<Any, TheoryTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyItemRepository repository;
+	protected AnyTheoryTutoriaslRepository repository;
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<TheoryTutorial> request) {
 		assert request!=null;
 		
 		return true;
 	}
 
 	@Override
-	public Collection<Item> findMany(final Request<Item> request) {
+	public TheoryTutorial findOne(final Request<TheoryTutorial> request) {
 		assert request!=null;
 		
-		Collection<Item> result;
-		Integer masterId;
+		TheoryTutorial result;
+		int id;
 		
-		if(request.getModel().hasAttribute("masterId")){
-			masterId = request.getModel().getInteger("masterId");
-			result = this.repository.findManyItemsByToolkitId(masterId);
-		}else {
-			result = this.repository.findAllItems();
-		}
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTheoryTutorialById(id);
 		
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<TheoryTutorial> request, final TheoryTutorial entity, final Model model) {
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "name","type","description");
+		request.unbind(entity, model, "ticker", "title", "abstractText", "cost", "hyperlink");
+		
 	}
 
 
