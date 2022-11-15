@@ -1,4 +1,4 @@
-package acme.features.teacher.theoryTutorial;
+package acme.features.teacher.labTutorial;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +15,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Teacher;
 
 @Repository
-public interface TeacherTheoryTutorialRepository extends AbstractRepository {
+public interface TeacherLabTutorialRepository extends AbstractRepository {
 
 	@Query("SELECT userAccount FROM UserAccount userAccount WHERE userAccount.id = :id")
 	UserAccount findOneUserAccountById(int id);
@@ -50,8 +50,8 @@ public interface TeacherTheoryTutorialRepository extends AbstractRepository {
 	@Query("select l.cost.amount, l.cost.currency from Register r, Course c, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id")
 	List<Object[]> getCourseLabTutorialsPrice(int id);
 	
-	@Query("select distinct t.id from Teacher t, Register r, Course c, TheoryTutorial tt where t.id = c.teacher.id and c.id = r.course.id and r.theoryTutorial.id = :id")
-	Integer findTeacherByTheoryTutorialId(int id);
+	@Query("select distinct t.id from Teacher t, Register r, Course c, LabTutorial lt where t.id = c.teacher.id and c.id = r.course.id and r.theoryTutorial.id = :id")
+	Integer findTeacherByLabTutorialId(int id);
 	
 	@Query("select t from TheoryTutorial t where t.id = :id")
 	TheoryTutorial findOneTheoryTutorialById(int id);
