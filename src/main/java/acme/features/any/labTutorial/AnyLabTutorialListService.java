@@ -1,5 +1,5 @@
 /*
- * AnyDutyShowService.java
+ * AnyDutyListService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,53 +10,58 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.theoryTutorials;
+package acme.features.any.labTutorial;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.TheoryTutorial;
+import acme.entities.LabTutorial;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyTheoryTutorialShowService implements AbstractShowService<Any, TheoryTutorial> {
+public class AnyLabTutorialListService implements AbstractListService<Any, LabTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyTheoryTutoriaslRepository repository;
+	protected AnyLabTutorialRepository repository;
 
 	@Override
-	public boolean authorise(final Request<TheoryTutorial> request) {
+	public boolean authorise(final Request<LabTutorial> request) {
 		assert request!=null;
 		
 		return true;
 	}
 
 	@Override
-	public TheoryTutorial findOne(final Request<TheoryTutorial> request) {
+	public Collection<LabTutorial> findMany(final Request<LabTutorial> request) {
 		assert request!=null;
 		
-		TheoryTutorial result;
-		int id;
+		Collection<LabTutorial> result;
+		Integer masterId;
 		
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneTheoryTutorialById(id);
+		if(request.getModel().hasAttribute("masterId")){
+			masterId = request.getModel().getInteger("masterId");
+			result = this.repository.findManyLabTutorialsByCourseId(masterId);
+		}else {
+			result = this.repository.findAllLabTutorials();
+		}
 		
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<TheoryTutorial> request, final TheoryTutorial entity, final Model model) {
+	public void unbind(final Request<LabTutorial> request, final LabTutorial entity, final Model model) {
 		assert request!=null;
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "ticker", "title", "abstractText", "cost", "hyperlink");
-		
+		request.unbind(entity, model, "title","abstractText");
 	}
 
 

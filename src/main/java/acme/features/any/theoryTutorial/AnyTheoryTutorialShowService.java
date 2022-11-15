@@ -1,5 +1,5 @@
 /*
- * AnyDutyListService.java
+ * AnyDutyShowService.java
  *
  * Copyright (C) 2012-2022 Rafael Corchuelo.
  *
@@ -10,9 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.theoryTutorials;
-
-import java.util.Collection;
+package acme.features.any.theoryTutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,15 +19,15 @@ import acme.entities.TheoryTutorial;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyTheoryTutoriaslListService implements AbstractListService<Any, TheoryTutorial> {
+public class AnyTheoryTutorialShowService implements AbstractShowService<Any, TheoryTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyTheoryTutoriaslRepository repository;
+	protected AnyTheoryTutorialRepository repository;
 
 	@Override
 	public boolean authorise(final Request<TheoryTutorial> request) {
@@ -39,18 +37,14 @@ public class AnyTheoryTutoriaslListService implements AbstractListService<Any, T
 	}
 
 	@Override
-	public Collection<TheoryTutorial> findMany(final Request<TheoryTutorial> request) {
+	public TheoryTutorial findOne(final Request<TheoryTutorial> request) {
 		assert request!=null;
 		
-		Collection<TheoryTutorial> result;
-		Integer masterId;
+		TheoryTutorial result;
+		int id;
 		
-		if(request.getModel().hasAttribute("masterId")){
-			masterId = request.getModel().getInteger("masterId");
-			result = this.repository.findManyTheoryTutorialsByCourseId(masterId);
-		}else {
-			result = this.repository.findAllTheoryTutorials();
-		}
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTheoryTutorialById(id);
 		
 		return result;
 	}
@@ -61,7 +55,8 @@ public class AnyTheoryTutoriaslListService implements AbstractListService<Any, T
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "title","abstractText");
+		request.unbind(entity, model, "ticker", "title", "abstractText", "cost", "hyperlink");
+		
 	}
 
 
