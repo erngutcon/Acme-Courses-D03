@@ -1,4 +1,4 @@
-# i18n-es.i18n
+# i18n-en.i18n
 #
 # Copyright (C) 2012-2022 Rafael Corchuelo.
 #
@@ -9,10 +9,10 @@
 # they accept any liabilities with respect to them.
 
 any.theory-tutorial.form.label.ticker = Ticker:
-any.theory-tutorial.form.label.title = Título:
-any.theory-tutorial.form.label.abstractText = Texto:
-any.theory-tutorial.form.label.cost = Coste:
+any.theory-tutorial.form.label.caption = Title:
+any.theory-tutorial.form.label.abstractText = Abstract text:
+any.theory-tutorial.form.label.cost = Cost:
 any.theory-tutorial.form.label.hyperlink = Hyperlink: 
 
-any.theory-tutorial.list.label.title = Título
-any.theory-tutorial.list.label.abstractText = Texto
+any.theory-tutorial.list.label.caption = Title
+any.theory-tutorial.list.label.abstractText = Abstract text

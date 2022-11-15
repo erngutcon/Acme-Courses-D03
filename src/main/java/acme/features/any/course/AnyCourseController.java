@@ -1,4 +1,4 @@
-package acme.features.any.toolkit;
+package acme.features.any.course;
 
 import javax.annotation.PostConstruct;
 
@@ -6,25 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.Toolkit;
+import acme.entities.Course;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
 
 @Controller
-@RequestMapping("/any/toolkit/")
-public class AnyToolkitController extends AbstractController<Any, Toolkit> {
+@RequestMapping("/any/course/")
+public class AnyCourseController extends AbstractController<Any, Course> {
 	
 	@Autowired
-	protected AnyToolkitListService listService;
+	protected AnyCourseListService listService;
 	
 	@Autowired
-	protected AnyToolkitShowService showService;
+	protected AnyCourseShowService showService;
 
-	//@Autowired AnyToolkitListItemService listItemService;
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listService);
-		//super.addCommand("listItem", this.listItemService);
 		super.addCommand("show", this.showService);
 	}
 }
