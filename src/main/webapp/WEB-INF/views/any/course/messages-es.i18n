@@ -9,10 +9,10 @@
 # they accept any liabilities with respect to them.
 
 any.theory-tutorial.form.label.ticker = Ticker:
-any.theory-tutorial.form.label.title = Título:
+any.theory-tutorial.form.label.caption = Título:
 any.theory-tutorial.form.label.abstractText = Texto:
 any.theory-tutorial.form.label.cost = Coste:
 any.theory-tutorial.form.label.hyperlink = Hyperlink: 
 
-any.theory-tutorial.list.label.title = Título
+any.theory-tutorial.list.label.caption = Título
 any.theory-tutorial.list.label.abstractText = Texto

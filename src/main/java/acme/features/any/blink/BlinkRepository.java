@@ -27,7 +27,7 @@ public interface BlinkRepository extends AbstractRepository {
 	@Query("select c from Blink c where c.id = :id")
 	Blink findOneBlinkById(int id);
 	
-	@Query("select c from Blink c where TO_DAYS(current_date()) - TO_DAYS(c.instanttiationMoment) < 30")
+	@Query("select c from Blink c where TO_DAYS(current_date()) - TO_DAYS(c.instantiationMoment) < 30")
 	Collection<Blink> findAllBlinks();
 	
 	@Query("select c from Configuration c")
