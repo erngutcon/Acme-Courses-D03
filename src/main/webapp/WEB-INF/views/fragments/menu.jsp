@@ -24,25 +24,30 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link"
-				action="http://www.example.com/" />
 			<acme:menu-suboption code="master.menu.anonymous.luis-favourite-link"
 				action="https://www.justwatch.com/" />
 			<acme:menu-suboption
 				code="master.menu.anonymous.ernesto-favourite-link"
 				action="https://www.twitch.tv/" />
+			<acme:menu-separator/>
 		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
-			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
-			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.any.list-blink" action="/any/blink/list"/>
+			<acme:menu-suboption code="master.menu.any.list-theory-tutorial" action="/any/theory-tutorial/list"/>
+			<acme:menu-suboption code="master.menu.any.list-lab-tutorial" action="/any/lab-tutorial/list"/>
+			<acme:menu-suboption code="master.menu.any.list-course" action="/any/course/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.view-configuration" action="/authenticated/configuration/show"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-post" action="/authenticated/post/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
+	
+	
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
