@@ -1,4 +1,4 @@
-key,caption,authorAlias,instantation-moment,message,email
+key,caption,authorAlias,instantiation-moment,message,email
 peep-01,Title1,Writer1,2022/08/21 10:00,Text,blink1@gmail.com
 blink-02,Title2,Writer2,2021/01/01 10:00,Text,blink2@gmail.com
 blink-03,Title3,Writer3,2022/08/22 01:00,Text,blink3@gmail.com

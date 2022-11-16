@@ -41,12 +41,10 @@ public class Register extends AbstractEntity {
 	@ManyToOne(optional=false)
 	protected Course course;
 	
-	@NotNull
 	@Valid
 	@OneToOne(optional=true)
 	protected TheoryTutorial theoryTutorial;
 	
-	@NotNull
 	@Valid
 	@OneToOne(optional=true)
 	protected LabTutorial labTutorial;

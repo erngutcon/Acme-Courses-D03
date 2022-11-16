@@ -1,4 +1,4 @@
-key,key:user-account,school,statement,link
+key,key:user-account,school,statement,hyperlink
 learner-01,user-account-learner1,School1,Incomplete,https://www.learner1.com
 learner-02,user-account-learner2,School2,Complete,https://www.learner2.com
 learner-03,user-account-learner3,School3,Complete,https://www.learner3.com
