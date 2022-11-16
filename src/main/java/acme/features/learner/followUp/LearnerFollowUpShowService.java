@@ -48,6 +48,6 @@ public class LearnerFollowUpShowService implements AbstractShowService<Learner, 
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "sequenceNumber", "message");
+		request.unbind(entity, model, "sequenceNumber", "instantiationMoment", "message", "hyperlink");
 	}
 }
