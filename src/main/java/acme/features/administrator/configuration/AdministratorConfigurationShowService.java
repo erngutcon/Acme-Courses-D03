@@ -3,6 +3,7 @@ package acme.features.administrator.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.checker.SpamFormatter;
 import acme.entities.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -11,8 +12,12 @@ import acme.framework.services.AbstractShowService;
 
 @Service
 public class AdministratorConfigurationShowService implements AbstractShowService<Administrator,Configuration>{
+	
 	@Autowired
 	protected AdministratorConfigurationRepository repository;
+	
+	@Autowired
+	private SpamFormatter spamFormatter;
 	
 	@Override
 	public boolean authorise(final Request<Configuration>request) {
@@ -28,7 +33,6 @@ public class AdministratorConfigurationShowService implements AbstractShowServic
 		Configuration result;
 		
 		
-		
 		result = this.repository.findConfiguration();
 		
 		
@@ -42,7 +46,7 @@ public class AdministratorConfigurationShowService implements AbstractShowServic
 		assert model != null;
 		
 		
-		request.unbind(entity, model,"currency","acceptedCurrencies","strongSpam","strongSpamThreshold","weakSpam","weakSpamThreshold");
-		
+		request.unbind(entity, model,"currency","acceptedCurrencies","spamRecords","spamThreshold","spamBoosterFactor");
+		model.setAttribute("spamRecords", this.spamFormatter.formatSpamRecords(entity.getSpamRecords()));
 	}
 }
