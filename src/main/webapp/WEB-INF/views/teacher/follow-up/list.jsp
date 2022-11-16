@@ -16,7 +16,6 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="teacher.help-request.list.label.ticker" path="ticker" width="30%"/>
-	<acme:list-column code="teacher.help-request.list.label.budget" path="budget" width="30%"/>
-	<acme:list-column code="teacher.help-request.list.label.status" path="status" width="30%"/>
+	<acme:list-column code="teacher.follow-up.list.label.sequenceNumber" path="sequenceNumber" width="60%"/>
+	<acme:list-column code="teacher.follow-up.list.label.instantiationMoment" path="instantiationMoment" width="40%"/>
 </acme:list>
