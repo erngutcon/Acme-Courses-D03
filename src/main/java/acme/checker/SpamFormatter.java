@@ -1,6 +1,7 @@
 package acme.checker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +10,27 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class SpamChecker {
+public class SpamFormatter {
+	
+	
+	public List<SpamRecord> formatSpamRecords(final String stringSpamRecords) {
+
+		final List<SpamRecord> res = new ArrayList<SpamRecord>();
+		SpamRecord newSpamRecord = null;
+
+		final List<String> formattedSpamRecords = Arrays.asList(stringSpamRecords.split(","));
+		for (final String formattedSpamRecord : formattedSpamRecords) {
+			
+			final String[] terms = formattedSpamRecord.split("-");
+			newSpamRecord = new SpamRecord(terms[0], //guarda el term
+											Double.valueOf(terms[1]), //guarda el weight
+											terms[2]=="X" ? "" : terms[2]); //guarda el booster (si es una X -> vacío)
+			res.add(newSpamRecord);
+		}
+
+		return res;
+
+	}
 	
 	public boolean isSpam(final String text, final String strongSpam, final String weakSpam, final Double strongThreshold,final Double weakThreshold) {	
 		

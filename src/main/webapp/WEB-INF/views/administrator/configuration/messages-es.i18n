@@ -8,11 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.configuration.configuration.form.label.currency= Moneda
-administrator.configuration.configuration.form.label.acceptedCurrencies= Monedas Aceptadas
-administrator.configuration.configuration.form.label.strongSpam = Strong Spam
-administrator.configuration.configuration.form.label.strongSpamThreshold= Strong Spam Threshold
-administrator.configuration.configuration.form.label.weakSpam = Weak Spam
-administrator.configuration.configuration.form.label.weakSpamThreshold=Weak Spam Threshold
-administrator.configuration.configuration.form.button.update=Update
-administrator.configuration.configuration.form.button.submit=Update
+administrator.configuration.configuration.form.label.currency= Divisa
+administrator.configuration.configuration.form.label.acceptedCurrencies= Divisas aceptadas
+administrator.configuration.configuration.form.label.spamRecords= Listado de Spam 
+
