@@ -10,7 +10,7 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Teacher;
 
 @Controller
-public class TeacherFollowUpReportController extends AbstractController<Teacher, FollowUp> {
+public class TeacherFollowUpController extends AbstractController<Teacher, FollowUp> {
 
 	@Autowired
 	protected TeacherFollowUpListService listService;
