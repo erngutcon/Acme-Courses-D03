@@ -20,35 +20,35 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.total-number-of-components" />
+				code="administrator.dashboard.form.label.total-number-of-theory-tutorials" />
 		</th>
-		<td><acme:print value="${totalNumberOfComponents}" /></td>
+		<td><acme:print value="${totalNumberOfTheoryTutorials}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.average-retail-price-of-components" /></th>
-		<jstl:forEach var="prices" items="${averageRetailPriceOfComponents}">
+				code="administrator.dashboard.form.label.average-cost-of-theory-tutorials" /></th>
+		<jstl:forEach var="prices" items="${averageCostOfTheoryTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.deviation-retail-price-of-components" /></th>
-		<jstl:forEach var="prices" items="${deviationRetailPriceOfComponents}">
+				code="administrator.dashboard.form.label.deviation-cost-of-theory-tutorials" /></th>
+		<jstl:forEach var="prices" items="${deviationCostOfTheoryTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.minimum-retail-price-of-components" /></th>
-		<jstl:forEach var="prices" items="${minimumRetailPriceOfComponents}">
+				code="administrator.dashboard.form.label.minimum-cost-of-theory-tutorials" /></th>
+		<jstl:forEach var="prices" items="${minimumCostOfTheoryTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.maximum-retail-price-of-components" /></th>
-		<jstl:forEach var="prices" items="${maximumRetailPriceOfComponents}">
+				code="administrator.dashboard.form.label.maximum-cost-of-theory-tutorials" /></th>
+		<jstl:forEach var="prices" items="${maximumCostOfTheoryTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
@@ -56,132 +56,132 @@
 		<th scope="row"><acme:message
 				code="administrator.dashboard.form.label.total-number-of-tools" />
 		</th>
-		<td><acme:print value="${totalNumberOfTools}" /></td>
+		<td><acme:print value="${totalNumberOfLabTutorials}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.average-retail-price-of-tools" /></th>
-		<jstl:forEach var="prices" items="${averageRetailPriceOfTools}">
+				code="administrator.dashboard.form.label.average-cost-of-tools" /></th>
+		<jstl:forEach var="prices" items="${averageCostOfLabTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.deviation-retail-price-of-tools" /></th>
-		<jstl:forEach var="prices" items="${deviationRetailPriceOfTools}">
+				code="administrator.dashboard.form.label.deviation-cost-of-tools" /></th>
+		<jstl:forEach var="prices" items="${deviationCostOfLabTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.minimum-retail-price-of-tools" /></th>
-		<jstl:forEach var="prices" items="${minimumRetailPriceOfTools}">
+				code="administrator.dashboard.form.label.minimum-cost-of-tools" /></th>
+		<jstl:forEach var="prices" items="${minimumCostOfLabTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.maximum-retail-price-of-tools" /></th>
-		<jstl:forEach var="prices" items="${maximumRetailPriceOfTools}">
+				code="administrator.dashboard.form.label.maximum-cost-of-tools" /></th>
+		<jstl:forEach var="prices" items="${maximumCostOfLabTutorials}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.total-number-of-proposed-patronages" /></th>
-		<td><acme:print value="${totalNumberOfProposedPatronages}" /></td>
+				code="administrator.dashboard.form.label.total-number-of-proposed-help-requests" /></th>
+		<td><acme:print value="${totalNumberOfProposedHelpRequests}" /></td>
 	</tr>
 		<tr>
 	<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.total-number-of-accepted-patronages" /></th>
-		<td><acme:print value="${totalNumberOfAcceptedPatronages}" /></td>
+				code="administrator.dashboard.form.label.total-number-of-accepted-help-requests" /></th>
+		<td><acme:print value="${totalNumberOfAcceptedHelpRequests}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.total-number-of-denied-patronages" /></th>
-		<td><acme:print value="${totalNumberOfDeniedPatronages}" /></td>
+				code="administrator.dashboard.form.label.total-number-of-denied-help-requests" /></th>
+		<td><acme:print value="${totalNumberOfDeniedHelpRequests}" /></td>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.average-budget-of-proposed-patronages" /></th>
-		<jstl:forEach var="prices" items="${averageBudgetOfProposedPatronages}">
+				code="administrator.dashboard.form.label.average-budget-of-proposed-help-requests" /></th>
+		<jstl:forEach var="prices" items="${averageBudgetOfProposedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.deviation-budget-of-proposed-patronages" /></th>
-		<jstl:forEach var="prices" items="${deviationBudgetOfProposedPatronages}">
+				code="administrator.dashboard.form.label.deviation-budget-of-proposed-help-requests" /></th>
+		<jstl:forEach var="prices" items="${deviationBudgetOfProposedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.minimum-budget-of-proposed-patronages" /></th>
-		<jstl:forEach var="prices" items="${minimumBudgetOfProposedPatronages}">
+				code="administrator.dashboard.form.label.minimum-budget-of-proposed-help-requests" /></th>
+		<jstl:forEach var="prices" items="${minimumBudgetOfProposedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.maximum-budget-of-proposed-patronages" /></th>
-		<jstl:forEach var="prices" items="${maximumBudgetOfProposedPatronages}">
+				code="administrator.dashboard.form.label.maximum-budget-of-proposed-help-requests" /></th>
+		<jstl:forEach var="prices" items="${maximumBudgetOfProposedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 		<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.average-budget-of-accepted-patronages" /></th>
-		<jstl:forEach var="prices" items="${averageBudgetOfAcceptedPatronages}">
+				code="administrator.dashboard.form.label.average-budget-of-accepted-help-requests" /></th>
+		<jstl:forEach var="prices" items="${averageBudgetOfAcceptedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.deviation-budget-of-accepted-patronages" /></th>
-		<jstl:forEach var="prices" items="${deviationBudgetOfAcceptedPatronages}">
+				code="administrator.dashboard.form.label.deviation-budget-of-accepted-help-requests" /></th>
+		<jstl:forEach var="prices" items="${deviationBudgetOfAcceptedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.minimum-budget-of-accepted-patronages" /></th>
-		<jstl:forEach var="prices" items="${minimumBudgetOfAcceptedPatronages}">
+				code="administrator.dashboard.form.label.minimum-budget-of-accepted-help-requests" /></th>
+		<jstl:forEach var="prices" items="${minimumBudgetOfAcceptedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.maximum-budget-of-accepted-patronages" /></th>
-		<jstl:forEach var="prices" items="${maximumBudgetOfAcceptedPatronages}">
+				code="administrator.dashboard.form.label.maximum-budget-of-accepted-help-requests" /></th>
+		<jstl:forEach var="prices" items="${maximumBudgetOfAcceptedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 			<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.average-budget-of-denied-patronages" /></th>
-		<jstl:forEach var="prices" items="${averageBudgetOfDeniedPatronages}">
+				code="administrator.dashboard.form.label.average-budget-of-denied-help-requests" /></th>
+		<jstl:forEach var="prices" items="${averageBudgetOfDeniedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.deviation-budget-of-denied-patronages" /></th>
-		<jstl:forEach var="prices" items="${deviationBudgetOfDeniedPatronages}">
+				code="administrator.dashboard.form.label.deviation-budget-of-denied-help-requests" /></th>
+		<jstl:forEach var="prices" items="${deviationBudgetOfDeniedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.minimum-budget-of-denied-patronages" /></th>
-		<jstl:forEach var="prices" items="${minimumBudgetOfDeniedPatronages}">
+				code="administrator.dashboard.form.label.minimum-budget-of-denied-help-requests" /></th>
+		<jstl:forEach var="prices" items="${minimumBudgetOfDeniedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
 	<tr>
 		<th scope="row"><acme:message
-				code="administrator.dashboard.form.label.maximum-budget-of-denied-patronages" /></th>
-		<jstl:forEach var="prices" items="${maximumBudgetOfDeniedPatronages}">
+				code="administrator.dashboard.form.label.maximum-budget-of-denied-help-requests" /></th>
+		<jstl:forEach var="prices" items="${maximumBudgetOfDeniedHelpRequests}">
 			<td><acme:print value="${prices}" /></td>
 		</jstl:forEach>
 	</tr>
@@ -198,7 +198,7 @@
 
 <h2>
 	<acme:message
-		code="administrator.dashboard.form.title.total-number-of-patronages" />
+		code="administrator.dashboard.form.title.total-number-of-help-requests" />
 </h2>
 <div>
 	<canvas id="canvas2"></canvas>
@@ -208,27 +208,27 @@
 	$(document).ready(function() {
 		var data = {
 			labels : [
-					"COMPONENTS","TOOLS"
+					"THEORY TUTORIALS","LAB TUTORIALS"
 			],
 			datasets : [
 				{
 					data : [
-						<jstl:out value="${totalNumberOfComponents}"/>,
-						<jstl:out value="${totalNumberOfTools}"/>
+						<jstl:out value="${totalNumberOfTheoryTutorials}"/>,
+						<jstl:out value="${totalNumberOfLabTutorials}"/>
 					]
 				}
 			]
 		};
 		var data1 = {
 				labels : [
-						"PROPOSED PATRONAGES","ACCEPTED PATRONAGES","DENIED PATRONAGES"
+						"PROPOSED HELP REQUESTS","ACCEPTED HELP REQUESTS","DENIED HELP REQUESTS"
 				],
 				datasets : [
 					{
 						data : [
-							<jstl:out value="${totalNumberOfProposedPatronages}"/>,
-							<jstl:out value="${totalNumberOfAcceptedPatronages}"/>,
-							<jstl:out value="${totalNumberOfDeniedPatronages}"/>
+							<jstl:out value="${totalNumberOfProposedHelpRequests}"/>,
+							<jstl:out value="${totalNumberOfAcceptedHelpRequests}"/>,
+							<jstl:out value="${totalNumberOfDeniedHelpRequests}"/>
 						]
 					}
 				]
