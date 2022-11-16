@@ -1,6 +1,7 @@
 package acme.features.teacher.course;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,10 +9,12 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.LabTutorial;
 import acme.entities.TheoryTutorial;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.features.any.labTutorial.AnyLabTutorialRepository;
 import acme.features.any.theoryTutorial.AnyTheoryTutorialRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Teacher;
 
@@ -19,13 +22,16 @@ import acme.roles.Teacher;
 public class TeacherCourseShowService implements AbstractShowService<Teacher, Course> {
 
 	@Autowired
-	protected TeacherCourseRepository repository;
+	protected TeacherCourseRepository teacherCourseRepository;
 	
 	@Autowired
 	protected AnyLabTutorialRepository labTutorialRepository;
 	
 	@Autowired
 	protected AnyTheoryTutorialRepository theoryTutorialRepository;
+	
+	@Autowired
+	protected AdministratorConfigurationRepository configurationRepository;
 
 	@Override
 	public boolean authorise(final Request<Course> request) {
@@ -33,11 +39,11 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 
 		boolean result;
 		int id;
-		Course item;
+		Course course;
 		
 		id = request.getModel().getInteger("id");
-		item = this.repository.findOneCourseById(id);
-		result = item != null && this.repository.findTeacherByCourseId(id) == request.getPrincipal().getActiveRoleId();
+		course = this.teacherCourseRepository.findOneCourseById(id);
+		result = course != null && this.teacherCourseRepository.findTeacherByCourseId(id) == request.getPrincipal().getActiveRoleId();
 
 		return result;
 	}
@@ -50,7 +56,7 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		Course result;
 		
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneCourseById(id);
+		result = this.teacherCourseRepository.findOneCourseById(id);
 
 		return result;
 	}
@@ -61,15 +67,20 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "caption", "abstractText");
+		request.unbind(entity, model, "ticker", "caption", "abstractText", "hyperlink");
 		
 		final int courseId = request.getModel().getInteger("id");
-		/*final List<Object[]> price = this.repository.getCourseLabTutorialPrice(courseId);
-		final List<Object[]> price2 = this.repository.getCourseTheoryTutorialPrice(courseId);
-		final Object totalPrice = price+price2;
-		model.setAttribute("totalPrice", totalPrice);*/
+		final List<Object[]> priceTheoryTutorials = this.teacherCourseRepository.getCourseLabTutorialsPrice(courseId);
+		final List<Object[]> priceLabTutorials= this.teacherCourseRepository.getCourseTheoryTutorialsPrice(courseId);
+		final Money  moneyTheoryTutorials = this.convertToLocalCurrencyAndSum(priceTheoryTutorials);
+		final Money moneyLabTutorials = this.convertToLocalCurrencyAndSum(priceLabTutorials);
 		
-		//request.this.unbind(entity, model, "ticker", "caption", "abstractText", "hyperlink");
+		final Money total = new Money();
+		total.setCurrency(moneyTheoryTutorials.getCurrency());
+		total.setAmount(moneyTheoryTutorials.getAmount()+moneyLabTutorials.getAmount());
+		model.setAttribute("totalPrice", total);
+		
+		
 
 		boolean existsTheoryTutorial = false;
 		boolean existsLabTutorial = false;
@@ -86,4 +97,59 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		model.setAttribute("existsLabTutorial", existsLabTutorial);
 		model.setAttribute("existstheoryTutorial", existsTheoryTutorial);
 	}
+	
+	// Other methods
+		private Money convertToLocalCurrencyAndSum(final List<Object[]> prices) {
+			final Money res = new Money();
+			
+			final String localCurrency = this.configurationRepository.findConfiguration().getCurrency();
+			Double amount;
+			Double sumAmount = 0.0;
+			String currency;
+			
+			// EUR
+			final Double EUR_USD_FACTOR = 1.0006;
+			final Double EUR_GBP_FACTOR = 0.881655;
+						
+			// USD
+			final Double USD_EUR_FACTOR = 0.998169;
+			final Double USD_GBP_FACTOR = 0.88121;
+			
+			// GBP
+			final Double GBP_EUR_FACTOR = 1.14938;
+			final Double GBP_USD_FACTOR = 1.137041;
+			
+			for (final Object[] b:prices) {
+				amount = (Double) b[0];
+				currency = (String) b[1];
+				
+				// If localCurrency = EUR
+				if(localCurrency.equals("EUR")) {
+					sumAmount += currency.equals("USD")
+						? amount * USD_EUR_FACTOR
+						: currency.equals("GBP")
+						? amount * GBP_EUR_FACTOR
+						: amount;
+				// If localCurrency = USD
+				}else if(localCurrency.equals("USD")) {
+					sumAmount += currency.equals("EUR")
+							? amount * EUR_USD_FACTOR
+							: currency.equals("GBP")
+							? amount * GBP_USD_FACTOR
+							: amount;
+				// If localCurrency = GBP
+				}else{
+					sumAmount += currency.equals("EUR")
+							? amount * EUR_GBP_FACTOR
+							: currency.equals("USD")
+							? amount * USD_GBP_FACTOR
+							: amount;
+				}
+			}
+			
+			res.setAmount(sumAmount);
+			res.setCurrency(localCurrency);
+			
+			return res;
+		}
 }
