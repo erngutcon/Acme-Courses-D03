@@ -8,10 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-patron.patronage-report.list.label.sequenceNumber = Número de secuencia
-patron.patronage-report.list.label.creationMoment = Fecha creación
+learner.dashboard.form.label.totalNumberOfProposedHelpRequests= Numero total de help requests propuestas
+learner.dashboard.form.label.totalNumberOfAcceptedHelpRequests = Numero total de help requests aceptadas
+learner.dashboard.form.label.totalNumberOfDeniedHelpRequests = Numero total de help requests denegadas
 
-patron.patronage-report.form.label.sequenceNumber = Número de secuencia
-patron.patronage-report.form.label.creationMoment = Fecha creación
-patron.patronage-report.form.label.memorandum  = Memorándum 
-patron.patronage-report.form.label.link = Link
+learner.dashboard.form.label.averageBudgetOfProposedHelpRequests = Media del presupuesto de los help requests propuestas
+learner.dashboard.form.label.deviationBudgetOfProposedHelpRequests = Desviacion del presupuesto de los help requests propuestas
+learner.dashboard.form.label.minimumBudgetOfProposedHelpRequests =Minimo del presupuesto de los help requests propuestas
+learner.dashboard.form.label.maximumBudgetOfProposedHelpRequests= Maximo del presupuesto de los help requests propuestas
+
+learner.dashboard.form.label.averageBudgetOfAcceptedHelpRequests =Media del presupuesto de los help requests aceptadas
+learner.dashboard.form.label.deviationBudgetOfAcceptedHelpRequests = Desviacion del presupuesto de los help requests aceptadas
+learner.dashboard.form.label.minimumBudgetOfAcceptedHelpRequests=Minimo del presupuesto de los help requests aceptadas
+learner.dashboard.form.label.maximumBudgetOfAcceptedHelpRequests=Maximo del presupuesto de los help requests aceptadas
+
+learner.dashboard.form.label.averageBudgetOfDeniedHelpRequests= Media del presupuesto de los help requests denegadas
+learner.dashboard.form.label.deviationBudgetOfDeniedHelpRequests=Desviacion del presupuesto de los help requests denegadas
+learner.dashboard.form.label.minimumBudgetOfDeniedHelpRequests=Minimo del presupuesto de los help requests denegadas
+learner.dashboard.form.label.maximumBudgetOfDeniedHelpRequests =Maximo del presupuesto de los help requests denegadas
