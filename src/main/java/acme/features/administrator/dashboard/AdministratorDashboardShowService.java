@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.forms.administrator.AdministratorDashboard;
+import acme.entities.dashboard.AdministratorDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Administrator;
@@ -28,106 +28,106 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		AdministratorDashboard result;
 		
-		// Manage COMPONENTS
-		Integer totalNumberOfComponents;
-		List<Object> averageRetailPriceOfComponents;
-		List<Object> deviationRetailPriceOfComponents;
-		List<Object> minimumRetailPriceOfComponents;
-		List<Object> maximumRetailPriceOfComponents;
+		// Manage TheoryTutorial
+		Integer totalNumberOfTheoryTutorials;
+		List<Object> averageCostOfTheoryTutorials;
+		List<Object> deviationCostOfTheoryTutorials;
+		List<Object> minimumCostOfTheoryTutorials;
+		List<Object> maximumCostOfTheoryTutorials;
 		
-		// Manage TOOLS
-		Integer totalNumberOfTools;
-		List<Object> averageRetailPriceOfTools;
-		List<Object> deviationRetailPriceOfTools;
-		List<Object> minimumRetailPriceOfTools;
-		List<Object> maximumRetailPriceOfTools;
+		// Manage LabTutorial
+		Integer totalNumberOfLabTutorials;
+		List<Object> averageCostOfLabTutorials;
+		List<Object> deviationCostOfLabTutorials;
+		List<Object> minimumCostOfLabTutorials;
+		List<Object> maximumCostOfLabTutorials;
 		
 		// Manage TOTALS
-		Integer totalNumberOfProposedPatronages;
-		Integer totalNumberOfAcceptedPatronages;
-		Integer totalNumberOfDeniedPatronages;
+		Integer totalNumberOfProposedHelpRequests;
+		Integer totalNumberOfAcceptedHelpRequests;
+		Integer totalNumberOfDeniedHelpRequests;
 
 		// Manage PROPOSED
-		List<Object> averageBudgetOfProposedPatronages;
-		List<Object> deviationBudgetOfProposedPatronages;
-		List<Object> minimumBudgetOfProposedPatronages;
-		List<Object> maximumBudgetOfProposedPatronages;
+		List<Object> averageBudgetOfProposedHelpRequests;
+		List<Object> deviationBudgetOfProposedHelpRequests;
+		List<Object> minimumBudgetOfProposedHelpRequests;
+		List<Object> maximumBudgetOfProposedHelpRequests;
 
 		// Manage ACCEPTED
-		List<Object> averageBudgetOfAcceptedPatronages;
-		List<Object> deviationBudgetOfAcceptedPatronages;
-		List<Object> minimumBudgetOfAcceptedPatronages;
-		List<Object> maximumBudgetOfAcceptedPatronages;
+		List<Object> averageBudgetOfAcceptedHelpRequests;
+		List<Object> deviationBudgetOfAcceptedHelpRequests;
+		List<Object> minimumBudgetOfAcceptedHelpRequests;
+		List<Object> maximumBudgetOfAcceptedHelpRequests;
 
 		// Manage DENIED
-		List<Object> averageBudgetOfDeniedPatronages;
-		List<Object> deviationBudgetOfDeniedPatronages;
-		List<Object> minimumBudgetOfDeniedPatronages;
-		List<Object> maximumBudgetOfDeniedPatronages;
+		List<Object> averageBudgetOfDeniedHelpRequests;
+		List<Object> deviationBudgetOfDeniedHelpRequests;
+		List<Object> minimumBudgetOfDeniedHelpRequests;
+		List<Object> maximumBudgetOfDeniedHelpRequests;
 		
 		
-		totalNumberOfComponents = this.repository.totalNumberOfComponents();
-		averageRetailPriceOfComponents = this.repository.averageRetailPriceOfComponents();
-		deviationRetailPriceOfComponents = this.repository.deviationRetailPriceOfComponents();
-		minimumRetailPriceOfComponents = this.repository.minimumRetailPriceOfComponents();
-		maximumRetailPriceOfComponents = this.repository.maximumRetailPriceOfComponents();
+		totalNumberOfTheoryTutorials = this.repository.totalNumberOfTheoryTutorials();
+		averageCostOfTheoryTutorials = this.repository.averageCostOfTheoryTutorials();
+		deviationCostOfTheoryTutorials = this.repository.deviationCostOfTheoryTutorials();
+		minimumCostOfTheoryTutorials = this.repository.minimumCostOfTheoryTutorials();
+		maximumCostOfTheoryTutorials = this.repository.maximumCostOfTheoryTutorials();
 		
-		totalNumberOfTools = this.repository.totalNumberOfTools();
-		averageRetailPriceOfTools = this.repository.averageRetailPriceOfTools();
-		deviationRetailPriceOfTools = this.repository.deviationRetailPriceOfTools();
-		minimumRetailPriceOfTools = this.repository.minimumRetailPriceOfTools();
-		maximumRetailPriceOfTools = this.repository.maximumRetailPriceOfTools();
+		totalNumberOfLabTutorials = this.repository.totalNumberOfLabTutorials();
+		averageCostOfLabTutorials = this.repository.averageCostOfLabTutorials();
+		deviationCostOfLabTutorials = this.repository.deviationCostOfLabTutorials();
+		minimumCostOfLabTutorials = this.repository.minimumCostOfLabTutorials();
+		maximumCostOfLabTutorials = this.repository.maximumCostOfLabTutorials();
 		
-		totalNumberOfProposedPatronages = this.repository.totalNumberOfProposedPatronages();
-		totalNumberOfAcceptedPatronages = this.repository.totalNumberOfAcceptedPatronages();
-		totalNumberOfDeniedPatronages = this.repository.totalNumberOfDeniedPatronages();
+		totalNumberOfProposedHelpRequests = this.repository.totalNumberOfProposedHelpRequests();
+		totalNumberOfAcceptedHelpRequests = this.repository.totalNumberOfAcceptedHelpRequests();
+		totalNumberOfDeniedHelpRequests = this.repository.totalNumberOfDeniedHelpRequests();
 		
-		averageBudgetOfProposedPatronages = this.repository.averageBudgetOfProposedPatronages();
-		deviationBudgetOfProposedPatronages = this.repository.deviationBudgetOfProposedPatronages();
-		minimumBudgetOfProposedPatronages = this.repository.minimumBudgetOfProposedPatronages();
-		maximumBudgetOfProposedPatronages = this.repository.maximumBudgetOfProposedPatronages();
+		averageBudgetOfProposedHelpRequests = this.repository.averageBudgetOfProposedHelpRequests();
+		deviationBudgetOfProposedHelpRequests = this.repository.deviationBudgetOfProposedHelpRequests();
+		minimumBudgetOfProposedHelpRequests = this.repository.minimumBudgetOfProposedHelpRequests();
+		maximumBudgetOfProposedHelpRequests = this.repository.maximumBudgetOfProposedHelpRequests();
 		
-		averageBudgetOfAcceptedPatronages = this.repository.averageBudgetOfAcceptedPatronages();
-		deviationBudgetOfAcceptedPatronages = this.repository.deviationBudgetOfAcceptedPatronages();
-		minimumBudgetOfAcceptedPatronages = this.repository.minimumBudgetOfAcceptedPatronages();
-		maximumBudgetOfAcceptedPatronages = this.repository.maximumBudgetOfAcceptedPatronages();
+		averageBudgetOfAcceptedHelpRequests = this.repository.averageBudgetOfAcceptedHelpRequests();
+		deviationBudgetOfAcceptedHelpRequests = this.repository.deviationBudgetOfAcceptedHelpRequests();
+		minimumBudgetOfAcceptedHelpRequests = this.repository.minimumBudgetOfAcceptedHelpRequests();
+		maximumBudgetOfAcceptedHelpRequests = this.repository.maximumBudgetOfAcceptedHelpRequests();
 		
-		averageBudgetOfDeniedPatronages = this.repository.averageBudgetOfDeniedPatronages();
-		deviationBudgetOfDeniedPatronages = this.repository.deviationBudgetOfDeniedPatronages();
-		minimumBudgetOfDeniedPatronages = this.repository.minimumBudgetOfDeniedPatronages();
-		maximumBudgetOfDeniedPatronages = this.repository.maximumBudgetOfDeniedPatronages();
+		averageBudgetOfDeniedHelpRequests = this.repository.averageBudgetOfDeniedHelpRequests();
+		deviationBudgetOfDeniedHelpRequests = this.repository.deviationBudgetOfDeniedHelpRequests();
+		minimumBudgetOfDeniedHelpRequests = this.repository.minimumBudgetOfDeniedHelpRequests();
+		maximumBudgetOfDeniedHelpRequests = this.repository.maximumBudgetOfDeniedHelpRequests();
 		
 		result = new AdministratorDashboard();
-		result.setTotalNumberOfComponents(totalNumberOfComponents);
-		result.setAverageRetailPriceOfComponents(averageRetailPriceOfComponents);
-		result.setDeviationRetailPriceOfComponents(deviationRetailPriceOfComponents);
-		result.setMinimumRetailPriceOfComponents(minimumRetailPriceOfComponents);
-		result.setMaximumRetailPriceOfComponents(maximumRetailPriceOfComponents);
+		result.setTotalNumberOfTheoryTutorials(totalNumberOfTheoryTutorials);
+		result.setAverageCostOfLabTutorials(averageCostOfTheoryTutorials);
+		result.setDeviationCostOfTheoryTutorials(deviationCostOfTheoryTutorials);
+		result.setMinimumCostOfTheoryTutorials(minimumCostOfTheoryTutorials);
+		result.setMaximumCostOfTheoryTutorials(maximumCostOfTheoryTutorials);
 		
-		result.setTotalNumberOfTools(totalNumberOfTools);
-		result.setAverageRetailPriceOfTools(averageRetailPriceOfTools);
-		result.setDeviationRetailPriceOfTools(deviationRetailPriceOfTools);
-		result.setMinimumRetailPriceOfTools(minimumRetailPriceOfTools);
-		result.setMaximumRetailPriceOfTools(maximumRetailPriceOfTools);
+		result.setTotalNumberOfLabTutorials(totalNumberOfLabTutorials);
+		result.setAverageCostOfLabTutorials(averageCostOfLabTutorials);
+		result.setDeviationCostOfLabTutorials(deviationCostOfLabTutorials);
+		result.setMinimumCostOfLabTutorials(minimumCostOfLabTutorials);
+		result.setMaximumCostOfLabTutorials(maximumCostOfLabTutorials);
 		
-		result.setTotalNumberOfProposedPatronages(totalNumberOfProposedPatronages);
-		result.setTotalNumberOfAcceptedPatronages(totalNumberOfAcceptedPatronages);
-		result.setTotalNumberOfDeniedPatronages(totalNumberOfDeniedPatronages);
+		result.setTotalNumberOfProposedHelpRequests(totalNumberOfProposedHelpRequests);
+		result.setTotalNumberOfAcceptedHelpRequests(totalNumberOfAcceptedHelpRequests);
+		result.setTotalNumberOfDeniedHelpRequests(totalNumberOfDeniedHelpRequests);
 		
-		result.setAverageBudgetOfProposedPatronages(averageBudgetOfProposedPatronages);
-		result.setDeviationBudgetOfProposedPatronages(deviationBudgetOfProposedPatronages);
-		result.setMinimumBudgetOfProposedPatronages(minimumBudgetOfProposedPatronages);
-		result.setMaximumBudgetOfProposedPatronages(maximumBudgetOfProposedPatronages);
+		result.setAverageBudgetOfProposedHelpRequests(averageBudgetOfProposedHelpRequests);
+		result.setDeviationBudgetOfProposedHelpRequests(deviationBudgetOfProposedHelpRequests);
+		result.setMinimumBudgetOfProposedHelpRequests(minimumBudgetOfProposedHelpRequests);
+		result.setMaximumBudgetOfProposedHelpRequests(maximumBudgetOfProposedHelpRequests);
 		
-		result.setAverageBudgetOfAcceptedPatronages(averageBudgetOfAcceptedPatronages);
-		result.setDeviationBudgetOfAcceptedPatronages(deviationBudgetOfAcceptedPatronages);
-		result.setMinimumBudgetOfAcceptedPatronages(minimumBudgetOfAcceptedPatronages);
-		result.setMaximumBudgetOfAcceptedPatronages(maximumBudgetOfAcceptedPatronages);
+		result.setAverageBudgetOfAcceptedHelpRequests(averageBudgetOfAcceptedHelpRequests);
+		result.setDeviationBudgetOfAcceptedHelpRequests(deviationBudgetOfAcceptedHelpRequests);
+		result.setMinimumBudgetOfAcceptedHelpRequests(minimumBudgetOfAcceptedHelpRequests);
+		result.setMaximumBudgetOfAcceptedHelpRequests(maximumBudgetOfAcceptedHelpRequests);
 		
-		result.setAverageBudgetOfDeniedPatronages(averageBudgetOfDeniedPatronages);
-		result.setDeviationBudgetOfDeniedPatronages(deviationBudgetOfDeniedPatronages);
-		result.setMinimumBudgetOfDeniedPatronages(minimumBudgetOfDeniedPatronages);
-		result.setMaximumBudgetOfDeniedPatronages(maximumBudgetOfDeniedPatronages);
+		result.setAverageBudgetOfDeniedHelpRequests(averageBudgetOfDeniedHelpRequests);
+		result.setDeviationBudgetOfDeniedHelpRequests(deviationBudgetOfDeniedHelpRequests);
+		result.setMinimumBudgetOfDeniedHelpRequests(minimumBudgetOfDeniedHelpRequests);
+		result.setMaximumBudgetOfDeniedHelpRequests(maximumBudgetOfDeniedHelpRequests);
 	
 		return result;
 	}
@@ -138,12 +138,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity,model,"totalNumberOfComponents","averageRetailPriceOfComponents","deviationRetailPriceOfComponents","minimumRetailPriceOfComponents","maximumRetailPriceOfComponents",
-									"totalNumberOfTools","averageRetailPriceOfTools","deviationRetailPriceOfTools","minimumRetailPriceOfTools","maximumRetailPriceOfTools",
-									"totalNumberOfProposedPatronages","totalNumberOfAcceptedPatronages","totalNumberOfDeniedPatronages",
-									"averageBudgetOfProposedPatronages","deviationBudgetOfProposedPatronages","minimumBudgetOfProposedPatronages","maximumBudgetOfProposedPatronages",
-									"averageBudgetOfAcceptedPatronages","deviationBudgetOfAcceptedPatronages","minimumBudgetOfAcceptedPatronages","maximumBudgetOfAcceptedPatronages",
-									"averageBudgetOfDeniedPatronages","deviationBudgetOfDeniedPatronages","minimumBudgetOfDeniedPatronages","maximumBudgetOfDeniedPatronages"
+		request.unbind(entity,model,"totalNumberOfTheoryTutorials","averageCostOfTheoryTutorials","deviationCostOfTheoryTutorials","minimumCostOfTheoryTutorials","maximumCostOfTheoryTutorials",
+									"totalNumberOfLabTutorials","averageCostOfLabTutorials","deviationCostOfLabTutorials","minimumCostOfLabTutorials","maximumCostOfLabTutorials",
+									"totalNumberOfProposedHelpRequests","totalNumberOfAcceptedHelpRequests","totalNumberOfDeniedHelpRequests",
+									"averageBudgetOfProposedHelpRequests","deviationBudgetOfProposedHelpRequests","minimumBudgetOfProposedHelpRequests","maximumBudgetOfProposedHelpRequests",
+									"averageBudgetOfAcceptedHelpRequests","deviationBudgetOfAcceptedHelpRequests","minimumBudgetOfAcceptedHelpRequests","maximumBudgetOfAcceptedHelpRequests",
+									"averageBudgetOfDeniedHelpRequests","deviationBudgetOfDeniedHelpRequests","minimumBudgetOfDeniedHelpRequests","maximumBudgetOfDeniedHelpRequests"
 									
 			);
 	}
