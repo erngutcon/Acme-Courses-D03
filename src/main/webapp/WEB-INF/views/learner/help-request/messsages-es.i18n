@@ -13,10 +13,12 @@ learner.help-request.list.label.budget = Presupuesto
 learner.help-request.list.label.status = Estado
 
 learner.help-request.form.label.ticker = Ticker
-learner.help-request.form.label.creationMoment = Fecha de creación
+learner.help-request.form.label.creationMoment = Fecha de creacion
 learner.help-request.form.label.initDate = Fecha de inicio
-learner.help-request.form.label.finishDate = Fecha de finalización
+learner.help-request.form.label.finishDate = Fecha de finalizacion
 learner.help-request.form.label.budget = Presupuesto
-learner.help-request.form.label.statement = Declaración
+learner.help-request.form.label.statement = Declaracion
 learner.help-request.form.label.hyperlink = Hyperlink
 learner.help-request.form.label.status = Estado
+
+any.user-account.form.label.teacher = Profesor
