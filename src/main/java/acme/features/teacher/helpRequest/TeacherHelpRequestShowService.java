@@ -76,6 +76,7 @@ public class TeacherHelpRequestShowService implements AbstractShowService<Teache
 
 		final int learnerId = entity.getLearner().getUserAccount().getId();
 		model.setAttribute("learnerId", learnerId);
+		
 		request.unbind(entity, model, "ticker", "statement", "creationMoment", "budget", "initDate", "finishDate", "status", "hyperlink");
 		
 		final Money totalPrice = this.convertToLocalCurrency(entity.getBudget());
