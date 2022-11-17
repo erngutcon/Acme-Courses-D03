@@ -18,7 +18,7 @@ public class AnyBlinkListAllTest extends TestHarness {
 	public void positiveTest(final int recordIndex, final String caption, final String authorAlias, final String instantiationMoment, final String message, final String email) {
 		super.signIn("administrator", "administrator");
 
-		super.clickOnMenu("Any", "Blink");
+		super.clickOnMenu("Any", "Blinks");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
