@@ -67,9 +67,8 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "caption", "abstractText", "hyperlink");
-		
 		final int courseId = request.getModel().getInteger("id");
+		//int teacherId = this.teacherCourseRepository.findTeacherByCourseId(courseId);
 		final List<Object[]> priceTheoryTutorials = this.teacherCourseRepository.getCourseLabTutorialsPrice(courseId);
 		final List<Object[]> priceLabTutorials= this.teacherCourseRepository.getCourseTheoryTutorialsPrice(courseId);
 		final Money  moneyTheoryTutorials = this.convertToLocalCurrencyAndSum(priceTheoryTutorials);
@@ -85,17 +84,16 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		boolean existsTheoryTutorial = false;
 		boolean existsLabTutorial = false;
 		
-		final Collection<TheoryTutorial> theoryTutorials = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
-		final Collection<LabTutorial> labTutorials = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
-		if(theoryTutorials.isEmpty()) {
-			existsTheoryTutorial=false;
-		} else { existsTheoryTutorial=true;}
-		if(labTutorials.isEmpty()) {
-			existsLabTutorial=false;
-		} else { existsLabTutorial=true;}
+		final Collection<TheoryTutorial> theoryTutorials  = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
+		final Collection<LabTutorial> labTutorials  = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
+		//final Collection<LabTutorial> labTutorials  = this.labTutorialRepository.findManyLabTutorialsByCourseIdAndTeacherId(courseId, teacherId);
+		if(theoryTutorials.size()!=0) existsTheoryTutorial=true;
+		if(labTutorials.size()!=0) existsLabTutorial=true;
 		
 		model.setAttribute("existsLabTutorial", existsLabTutorial);
-		model.setAttribute("existstheoryTutorial", existsTheoryTutorial);
+		model.setAttribute("existsTheoryTutorial", existsTheoryTutorial);
+		
+		request.unbind(entity, model, "ticker", "caption", "abstractText", "hyperlink");
 	}
 	
 	// Other methods
