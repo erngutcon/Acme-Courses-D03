@@ -42,24 +42,24 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		List<Object> minimumCostOfLabTutorials;
 		List<Object> maximumCostOfLabTutorials;
 		
-		// Manage TOTALS
+		// Manage TOTALS HelpRequest
 		Integer totalNumberOfProposedHelpRequests;
 		Integer totalNumberOfAcceptedHelpRequests;
 		Integer totalNumberOfDeniedHelpRequests;
 
-		// Manage PROPOSED
+		// Manage PROPOSED HelpRequest
 		List<Object> averageBudgetOfProposedHelpRequests;
 		List<Object> deviationBudgetOfProposedHelpRequests;
 		List<Object> minimumBudgetOfProposedHelpRequests;
 		List<Object> maximumBudgetOfProposedHelpRequests;
 
-		// Manage ACCEPTED
+		// Manage ACCEPTED HelpRequest
 		List<Object> averageBudgetOfAcceptedHelpRequests;
 		List<Object> deviationBudgetOfAcceptedHelpRequests;
 		List<Object> minimumBudgetOfAcceptedHelpRequests;
 		List<Object> maximumBudgetOfAcceptedHelpRequests;
 
-		// Manage DENIED
+		// Manage DENIED HelpRequest
 		List<Object> averageBudgetOfDeniedHelpRequests;
 		List<Object> deviationBudgetOfDeniedHelpRequests;
 		List<Object> minimumBudgetOfDeniedHelpRequests;
@@ -99,7 +99,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		result = new AdministratorDashboard();
 		result.setTotalNumberOfTheoryTutorials(totalNumberOfTheoryTutorials);
-		result.setAverageCostOfLabTutorials(averageCostOfTheoryTutorials);
+		result.setAverageCostOfTheoryTutorials(averageCostOfTheoryTutorials);
 		result.setDeviationCostOfTheoryTutorials(deviationCostOfTheoryTutorials);
 		result.setMinimumCostOfTheoryTutorials(minimumCostOfTheoryTutorials);
 		result.setMaximumCostOfTheoryTutorials(maximumCostOfTheoryTutorials);
