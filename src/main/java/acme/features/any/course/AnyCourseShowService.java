@@ -58,7 +58,8 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 		assert entity != null;
 		assert model != null;
 
-		
+		boolean existsTheoryTutorial = false;
+		boolean existsLabTutorial = false;
 		
 		final int courseId = request.getModel().getInteger("id");
 		final List<Object[]> costLab = this.repository.getCourseLabTutorialPrice(courseId);
@@ -71,22 +72,18 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 		totalCost.setAmount(moneyLab.getAmount()+moneyTheory.getAmount());
 		model.setAttribute("cost", totalCost);
 		
-		boolean existsTheoryTutorial = false;
-		boolean existsLabTutorial = false;
 		
-		final Collection<TheoryTutorial> theoryTutorials = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
-		final Collection<LabTutorial> labTutorials = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
-		if(theoryTutorials.isEmpty()) {
-			existsTheoryTutorial=false;
-		} else { existsTheoryTutorial=true;}
-		if(labTutorials.isEmpty()) {
-			existsLabTutorial=false;
-		} else { existsLabTutorial=true;}
+		
+		
+		
+		final Collection<TheoryTutorial> theoryTutorials  = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
+		final Collection<LabTutorial> labTutorials  = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
+		if(theoryTutorials.size()==1) existsTheoryTutorial=true;
+		if(labTutorials.size()==1) existsLabTutorial=true;
+		model.setAttribute("existsTheoryTutorial", existsTheoryTutorial);
+		model.setAttribute("existsLabTutorial", existsLabTutorial);
 		
 		request.unbind(entity, model, "ticker", "caption", "abstractText");
-		
-		model.setAttribute("existsLabTutorial", existsLabTutorial);
-		model.setAttribute("existstheoryTutorial", existsTheoryTutorial);
 		
 		
 	}
