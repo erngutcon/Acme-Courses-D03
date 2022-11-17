@@ -16,8 +16,8 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.sequenceNumber" path="sequenceNumber"/>
-	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.sequence-number" path="sequenceNumber"/>
+	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.instantiation-moment" path="instantiationMoment"/>
 	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.message" path="message"/>
 	<acme:input-textbox readonly="true" code="teacher.follow-up.form.label.hyperlink" path="hyperlink"/>
 </acme:form>

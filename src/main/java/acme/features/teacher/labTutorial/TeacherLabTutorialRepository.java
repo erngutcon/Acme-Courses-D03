@@ -4,12 +4,12 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Configuration;
 import acme.entities.Course;
 import acme.entities.LabTutorial;
-import acme.entities.TheoryTutorial;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Teacher;
@@ -18,25 +18,25 @@ import acme.roles.Teacher;
 public interface TeacherLabTutorialRepository extends AbstractRepository {
 
 	@Query("SELECT userAccount FROM UserAccount userAccount WHERE userAccount.id = :id")
-	UserAccount findOneUserAccountById(int id);
+	UserAccount findOneUserAccountById(@Param("id") int id);
 
 	@Query("SELECT c FROM Course c WHERE c.teacher.id = :id")
-	Collection<Course> findAllCoursesByTeacher(int id);
+	Collection<Course> findAllCoursesByTeacher(@Param("id") int id);
 	
 	@Query("SELECT t FROM Teacher t WHERE t.id = :id")
-	Teacher findOneTeacherById(int id);
+	Teacher findOneTeacherById(@Param("id") int id);
 	
 	@Query("SELECT t FROM Teacher t WHERE t.userAccount.id = :id")
-	Teacher findOneTeacherByAccountId(int id);
+	Teacher findOneTeacherByAccountId(@Param("id") int id);
 	
 	@Query("SELECT c FROM Course c WHERE c.id = :id")
-	Course findOneCourseById(int id);
+	Course findOneCourseById(@Param("id") int id);
 
-	@Query("SELECT t FROM Teacher t, Register r, Course c WHERE t.id = r.theoryTutorial.id AND c.teacher.id = t.id AND c.id = r.course.id AND t.id = :id")
-	Collection<TheoryTutorial> findManyTheoryTutorialsByTeacherId(int id);
+//	@Query("SELECT t FROM Teacher t, Register r, Course c WHERE t.id = r.theoryTutorial.id AND c.teacher.id = t.id AND c.id = r.course.id AND t.id = :id")
+//	Collection<TheoryTutorial> findManyTheoryTutorialsByTeacherId(@Param("id") int id);
 	
-	@Query("SELECT t FROM Teacher t, Register r, Course c WHERE t.id = r.labTutorial.id AND c.teacher.id = t.id AND c.id = r.course.id AND t.id = :id")
-	Collection<LabTutorial> findManyLabTutorialsByTeacherId(int id);
+	@Query("SELECT lt FROM Teacher t, Course c, Register r, LabTutorial lt WHERE t.id = c.teacher.id AND c.id = r.course.id AND r.labTutorial.id = lt.id AND t.id = :id")
+	Collection<LabTutorial> findManyLabTutorialsByTeacherId(@Param("id") int id);
 	
 	@Query("SELECT item FROM Course item")
 	Collection<Course> findAllCourses();
@@ -45,17 +45,17 @@ public interface TeacherLabTutorialRepository extends AbstractRepository {
 	Configuration findConfiguration();
 	
 	@Query("select t.cost.amount, t.cost.currency from Register r, Course c, TheoryTutorial t where c.id = r.course.id and r.theoryTutorial.id = t.id and c.id = :id")
-	List<Object[]> getCourseTheoryTutorialsPrice(int id);
+	List<Object[]> getCourseTheoryTutorialsPrice(@Param("id") int id);
 
 	@Query("select l.cost.amount, l.cost.currency from Register r, Course c, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id")
-	List<Object[]> getCourseLabTutorialsPrice(int id);
+	List<Object[]> getCourseLabTutorialsPrice(@Param("id") int id);
 	
-	@Query("select distinct t.id from Teacher t, Register r, Course c, LabTutorial lt where t.id = c.teacher.id and c.id = r.course.id and r.theoryTutorial.id = :id")
-	Integer findTeacherByLabTutorialId(int id);
+	@Query("select distinct te.id from Teacher te, Course c, Register r, LabTutorial l where te.id = c.teacher.id and c.id = r.course.id and r.labTutorial.id = :id")
+	Integer findTeacherByLabTutorialId(@Param("id") int id);
 	
-	@Query("select t from TheoryTutorial t where t.id = :id")
-	TheoryTutorial findOneTheoryTutorialById(int id);
+//	@Query("select t from TheoryTutorial t where t.id = :id")
+//	TheoryTutorial findOneTheoryTutorialById(@Param("id") int id);
 	
 	@Query("select l from LabTutorial l where l.id = :id")
-	LabTutorial findOneLabTutorialById(int id);
+	LabTutorial findOneLabTutorialById(@Param("id") int id);
 }

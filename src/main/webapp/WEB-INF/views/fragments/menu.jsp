@@ -34,6 +34,7 @@
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.list-blink" action="/any/blink/list"/>
 			<acme:menu-suboption code="master.menu.any.list-theory-tutorial" action="/any/theory-tutorial/list"/>
 			<acme:menu-suboption code="master.menu.any.list-lab-tutorial" action="/any/lab-tutorial/list"/>
@@ -43,6 +44,20 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.view-configuration" action="/authenticated/configuration/show"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-post" action="/authenticated/post/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.teacher" access="hasRole('Teacher')">
+			<acme:menu-suboption code="master.menu.teacher.list-course" action="/teacher/course/list"/>
+			<acme:menu-suboption code="master.menu.teacher.list-theory-tutorial" action="/teacher/theory-tutorial/list"/>
+			<acme:menu-suboption code="master.menu.teacher.list-lab-tutorial" action="/teacher/lab-tutorial/list"/>
+			<acme:menu-suboption code="master.menu.teacher.list-help-request" action="/teacher/help-request/list"/>
+			<acme:menu-suboption code="master.menu.teacher.list-follow-up" action="/teacher/follow-up/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.learner" access="hasRole('Learner')">
+			<acme:menu-suboption code="master.menu.learner.view-dashboard" action="/learner/learner-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.learner.list-help-request" action="/learner/help-request/list"/>
+			<acme:menu-suboption code="master.menu.learner.list-follow-up" action="/learner/follow-up/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

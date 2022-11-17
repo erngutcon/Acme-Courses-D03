@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.TheoryTutorial;
@@ -25,13 +26,13 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnyTheoryTutorialRepository extends AbstractRepository {
 
 	@Query("select t from TheoryTutorial t where t.id = :id")
-	TheoryTutorial findOneTheoryTutorialById(int id);
+	TheoryTutorial findOneTheoryTutorialById(@Param("id") int id);
 	
 	@Query("select t from TheoryTutorial t")
 	List<TheoryTutorial> findAllTheoryTutorials();
 
 	@Query("select t from Course c, Register r, TheoryTutorial t where c.id = r.course.id and r.theoryTutorial.id = t.id and c.id = :id")
-	Collection<TheoryTutorial> findManyTheoryTutorialsByCourseId(int id);
+	Collection<TheoryTutorial> findManyTheoryTutorialsByCourseId(@Param("id") int id);
 	
 	
 }

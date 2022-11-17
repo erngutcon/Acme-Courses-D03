@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Course;
@@ -17,13 +18,13 @@ public interface AnyCourseRepository extends AbstractRepository{
 	Collection<Course> findCourses();
 
 	@Query("select t from Course t where t.id = :id")
-	Course findOneCourseById(int id);
+	Course findOneCourseById(@Param("id") int id);
 
-	@Query("select i.cost.currency, i.cost.amount from Course c, Register r, TheoryTutorial i where c.id = r.course.id and r.theoryTutorial.id = i.id and c.id = :id")
-	List<Object[]> getCourseTheoryTutorialPrice(int id);
+	@Query("select  i.cost.amount, i.cost.currency from Course c, Register r, TheoryTutorial i where c.id = r.course.id and r.theoryTutorial.id = i.id and c.id = :id")
+	List<Object[]> getCourseTheoryTutorialPrice(@Param("id") int id);
 	
-	@Query("select i.cost.currency, i.cost.amount from Course c, Register r, LabTutorial i where c.id = r.course.id and r.labTutorial.id = i.id and c.id = :id")
-	List<Object[]> getCourseLabTutorialPrice(int id);
+	@Query("select i.cost.amount, i.cost.currency from Course c, Register r, LabTutorial i where c.id = r.course.id and r.labTutorial.id = i.id and c.id = :id")
+	List<Object[]> getCourseLabTutorialPrice(@Param("id") int id);
 
 
 

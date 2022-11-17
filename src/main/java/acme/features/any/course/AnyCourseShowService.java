@@ -1,6 +1,7 @@
 package acme.features.any.course;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,10 +9,12 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.LabTutorial;
 import acme.entities.TheoryTutorial;
+import acme.features.administrator.configuration.AdministratorConfigurationRepository;
 import acme.features.any.labTutorial.AnyLabTutorialRepository;
 import acme.features.any.theoryTutorial.AnyTheoryTutorialRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
@@ -27,6 +30,9 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 	
 	@Autowired
 	protected AnyTheoryTutorialRepository theoryTutorialRepository;
+	
+	@Autowired
+	protected AdministratorConfigurationRepository configurationRepository;
 	
 	@Override
 	public boolean authorise(final Request<Course> request) {
@@ -52,16 +58,19 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "caption", "abstractText");
+		
 		
 		final int courseId = request.getModel().getInteger("id");
-		/*final List<Object[]> price = this.repository.getCourseLabTutorialPrice(courseId);
-		final List<Object[]> price2 = this.repository.getCourseTheoryTutorialPrice(courseId);
-		final Object totalPrice = price+price2;
-		model.setAttribute("totalPrice", totalPrice);*/
-		
-		//request.this.unbind(entity, model, "ticker", "caption", "abstractText", "hyperlink");
+		final List<Object[]> costLab = this.repository.getCourseLabTutorialPrice(courseId);
+		final List<Object[]> costTheory = this.repository.getCourseTheoryTutorialPrice(courseId);
+		final Money moneyLab = this.convertToLocalCurrency(costLab);
+		final Money moneyTheory = this.convertToLocalCurrency(costTheory);
 
+		final Money totalCost = new Money();
+		totalCost.setCurrency(moneyTheory.getCurrency());
+		totalCost.setAmount(moneyLab.getAmount()+moneyTheory.getAmount());
+		model.setAttribute("cost", totalCost);
+		
 		boolean existsTheoryTutorial = false;
 		boolean existsLabTutorial = false;
 		
@@ -74,12 +83,67 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 			existsLabTutorial=false;
 		} else { existsLabTutorial=true;}
 		
+		request.unbind(entity, model, "ticker", "caption", "abstractText");
+		
 		model.setAttribute("existsLabTutorial", existsLabTutorial);
 		model.setAttribute("existstheoryTutorial", existsTheoryTutorial);
 		
 		
+	}
+	
+	// Other methods
+	private Money convertToLocalCurrency(final List<Object[]> prices) {
+		final Money res = new Money();
+
+		final String localCurrency = this.configurationRepository.findConfiguration().getCurrency();
+		Double amount;
+		String currency;
+		Double sumAmount = 0.0;
+
+		// EUR
+		final Double EUR_USD_FACTOR = 1.0006;
+		final Double EUR_GBP_FACTOR = 0.881655;
+
+		// USD
+		final Double USD_EUR_FACTOR = 0.998169;
+		final Double USD_GBP_FACTOR = 0.88121;
+
+		// GBP
+		final Double GBP_EUR_FACTOR = 1.14938;
+		final Double GBP_USD_FACTOR = 1.137041;
+
+		for (final Object[] b:prices) {
+			amount = (Double) b[0];
+			currency = (String) b[1];
+			
+			// If localCurrency = EUR
+			if(localCurrency.equals("EUR")) {
+				sumAmount += currency.equals("USD")
+					? amount * USD_EUR_FACTOR
+					: currency.equals("GBP")
+					? amount * GBP_EUR_FACTOR
+					: amount;
+			// If localCurrency = USD
+			}else if(localCurrency.equals("USD")) {
+				sumAmount += currency.equals("EUR")
+						? amount * EUR_USD_FACTOR
+						: currency.equals("GBP")
+						? amount * GBP_USD_FACTOR
+						: amount;
+			// If localCurrency = GBP
+			}else{
+				sumAmount += currency.equals("EUR")
+						? amount * EUR_GBP_FACTOR
+						: currency.equals("USD")
+						? amount * USD_GBP_FACTOR
+						: amount;
+			}
+		}
 		
+		res.setAmount(sumAmount);
+		res.setCurrency(localCurrency);
 		
+		return res;
 	}
 
 }

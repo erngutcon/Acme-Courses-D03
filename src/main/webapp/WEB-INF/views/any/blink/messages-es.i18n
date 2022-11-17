@@ -8,13 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.blink.form.label.instantiation-moment = Momento de creación:
-any.blink.form.label.caption = Título:
-any.blink.form.label.author = Autor:
+any.blink.form.label.instantiation-moment = Momento de creacion:
+any.blink.form.label.caption = Titulo:
+any.blink.form.label.author-alias = Autor:
 any.blink.form.label.message = Mensaje:
-any.blink.form.label.email = Correo electrónico:
+any.blink.form.label.email = Correo electronico:
 
-any.blink.list.label.instantiation-moment = Momento de creación
-any.blink.list.label.author = Autor
-any.blink.list.label.caption = Título
+any.blink.list.label.instantiation-moment = Momento de creacion
+any.blink.list.label.author-alias = Alias del autor
+any.blink.list.label.caption = Titulo
 

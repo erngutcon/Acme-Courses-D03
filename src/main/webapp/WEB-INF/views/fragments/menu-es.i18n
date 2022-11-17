@@ -32,61 +32,41 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
-# master.menu.inventor ########################################################
-
-master.menu.inventor = Inventor
-master.menu.inventor.items = Ã�tems
-master.menu.inventor.items.create = Crear Ã­tem
-master.menu.inventor.toolkits = Listar kits de herramientas
-master.menu.inventor.toolkits.create = Crear kit de herramientas
-master.menu.inventor.patronages = Patrocinios
-master.menu.inventor.patronage-reports = Reportes de los patrocinios
-
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
-
-# master.menu.patron ##########################################################
-
-master.menu.patron = PatrÃ³n
-master.menu.patron.patronages = Listar patrocinios
-master.menu.patron.patronages.create = Crear patrocionio
-master.menu.patron.dashboard = Panel de indicadores
-master.menu.patron.patronage-reports = Informe de patrocinios
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
-master.menu.user-account.patron = Datos del patron
-master.menu.user-account.become-patron = Hazte patron
-master.menu.user-account.inventor = Datos del inventor
-master.menu.user-account.become-inventor = Hazte inventor
+
 
 # master.menu.any #######################################################
 
 master.menu.any = Cualquiera
-master.menu.any.user-account = Cuentas de usuario
-master.menu.any.toolkits = Kits de herramientas 
-master.menu.any.item = Ã�tems
-master.menu.any.chirp = Chirp
-master.menu.any.component.list = Ver componentes
-master.menu.any.tool.list = Ver herramientas
-master.menu.any.favourite-link = Enlace favorito
-master.menu.any.configuration = ConfiguraciÃ³n
+master.menu.any.user-accounts = Cuentas de usuario
+master.menu.any.list-blink = Noticias
+master.menu.any.list-theory-tutorial = Tutoriales de teor�a
+master.menu.any.list-lab-tutorial = Tutoriales de laboratorio
+master.menu.any.list-course = Cursos
+
+# master.menu.teacher ####################################################
+
+master.menu.teacher = Profesor
+master.menu.teacher.list-course = Mis cursos
+master.menu.teacher.list-theory-tutorial = Mis tutoriales de teor�a
+master.menu.teacher.list-lab-tutorial = Mis tutoriales de laboratorio
+master.menu.teacher.list-course = Mis cursos
+master.menu.teacher.list-help-request = Mis solicitudes de ayuda
+master.menu.teacher.list-follow-up = Mis seguimientos
+
+# master.menu.learner ####################################################
+
+master.menu.learner = Aprendiz
+master.menu.learner.view-dashboard = Panel de indicadores
+master.menu.learner.list-help-request = Solicitudes de ayuda
+master.menu.learner.list-follow-up = Seguimientos
 
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.post = Publicaciones
-master.menu.authenticated.configuration = ConfiguraciÃ³n
+master.menu.authenticated.configuration = Configuracionn

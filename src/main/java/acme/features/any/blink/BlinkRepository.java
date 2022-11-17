@@ -15,6 +15,7 @@ package acme.features.any.blink;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Blink;
@@ -25,7 +26,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface BlinkRepository extends AbstractRepository {
 
 	@Query("select c from Blink c where c.id = :id")
-	Blink findOneBlinkById(int id);
+	Blink findOneBlinkById(@Param("id") int id);
 	
 	@Query("select c from Blink c where TO_DAYS(current_date()) - TO_DAYS(c.instantiationMoment) < 30")
 	Collection<Blink> findAllBlinks();

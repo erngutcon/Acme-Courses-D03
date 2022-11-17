@@ -8,10 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-teacher.follow-up.list.label.sequenceNumber = Número de secuencia
-teacher.follow-up.list.label.instantiationMoment = Fecha creación
+teacher.follow-up.list.label.sequence-number = Número de secuencia
+teacher.follow-up.list.label.instantiation-moment = Fecha creación
 
-teacher.follow-up.form.label.sequenceNumber = Número de secuencia
-teacher.follow-up.form.label.creationMoment = Fecha creación
+teacher.follow-up.form.label.sequence-number = Número de secuencia
+teacher.follow-up.form.label.instantiation-moment = Fecha creación
 teacher.follow-up.form.label.message= Mensaje
 teacher.follow-up.form.label.hyperlink= Hyperlink

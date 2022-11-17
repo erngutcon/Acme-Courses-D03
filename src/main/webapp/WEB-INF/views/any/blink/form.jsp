@@ -17,7 +17,7 @@
 
 <acme:form readonly="${readonly}">
 	<acme:input-textbox code="any.blink.form.label.caption" path="caption"/>
-	<acme:input-textbox code="any.blink.form.label.author" path="author"/>
+	<acme:input-textbox code="any.blink.form.label.author-alias" path="authorAlias"/>
 	<acme:input-textarea code="any.blink.form.label.message" path="message"/>
 	<acme:input-textbox code="any.blink.form.label.email" path="email"/>
 	<acme:input-moment code="any.blink.form.label.instantiation-moment" path="instantiationMoment"/>
