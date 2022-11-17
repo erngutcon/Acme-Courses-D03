@@ -3,12 +3,12 @@ package acme.features.administrator.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.checker.SpamFormatter;
 import acme.entities.Configuration;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractShowService;
+import acme.spam.SpamFormatter;
 
 @Service
 public class AdministratorConfigurationShowService implements AbstractShowService<Administrator,Configuration>{
@@ -46,7 +46,7 @@ public class AdministratorConfigurationShowService implements AbstractShowServic
 		assert model != null;
 		
 		
-		request.unbind(entity, model,"currency","acceptedCurrencies","spamRecords","spamThreshold","spamBoosterFactor");
+		request.unbind(entity, model,"currency","acceptedCurrencies", "spamRecords", "spamThreshold", "spamBoosterFactor");
 		model.setAttribute("spamRecords", this.spamFormatter.formatSpamRecords(entity.getSpamRecords()));
 	}
 }

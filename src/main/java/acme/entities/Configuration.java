@@ -38,7 +38,7 @@ public class Configuration extends AbstractEntity {
 	
 	@NotNull
 	@Range(min = 0, max = 1)
-	private Double					spamTreshold;
+	private Double					spamThreshold;
 
 	@NotNull
 	@Min(1)
