@@ -44,7 +44,7 @@ master.menu.user-account.general-data = Datos generales
 master.menu.any = Cualquiera
 master.menu.any.user-accounts = Cuentas de usuario
 master.menu.any.list-blink = Noticias
-master.menu.any.list-theory-tutorial = Tutoriales de teoría
+master.menu.any.list-theory-tutorial = Tutoriales de teoria
 master.menu.any.list-lab-tutorial = Tutoriales de laboratorio
 master.menu.any.list-course = Cursos
 
@@ -52,7 +52,7 @@ master.menu.any.list-course = Cursos
 
 master.menu.teacher = Profesor
 master.menu.teacher.list-course = Mis cursos
-master.menu.teacher.list-theory-tutorial = Mis tutoriales de teoría
+master.menu.teacher.list-theory-tutorial = Mis tutoriales de teoria
 master.menu.teacher.list-lab-tutorial = Mis tutoriales de laboratorio
 master.menu.teacher.list-course = Mis cursos
 master.menu.teacher.list-help-request = Mis solicitudes de ayuda

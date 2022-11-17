@@ -13,6 +13,7 @@ any.course.form.label.caption = Title:
 any.course.form.label.abstractText = Abstract text:
 any.course.form.label.cost = Cost:
 any.course.form.label.hyperlink = Hyperlink: 
+any.course.form.label.list-theory-tutorial = Theory Tutorial
 
 any.course.list.label.caption = Caption
 any.course.list.label.abstractText = Abstract text
