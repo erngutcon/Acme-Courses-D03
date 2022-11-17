@@ -24,4 +24,6 @@
 	<acme:input-textbox code="learner.help-request.form.label.status" path="status" readonly="true"/>
 	<acme:input-textbox code="learner.help-request.form.label.budget" path="budget" readonly="true"/>
 	<acme:input-url code="learner.help-request.form.label.hyperlink" path="hyperlink" readonly="true"/>
+	
+	<acme:button code="any.user-account.form.label.teacher" action="/any/user-account/show?id=${teacherId}"/>
 </acme:form>
