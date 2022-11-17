@@ -27,9 +27,6 @@ import acme.roles.Learner;
 @Repository
 public interface LearnerHelpRequestRepository extends AbstractRepository {
 	
-	@Query("select learner from Learner learner where learner.userAccount.id =:id")
-	Learner findLearnerByUserId(@Param("id") int id);
-	
 	@Query("select learner from Learner learner where learner.id =:id")
 	Learner findLearnerById(@Param("id") int id);
 	
@@ -39,16 +36,13 @@ public interface LearnerHelpRequestRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(@Param("id") int id);
 
-	@Query("select hp from HelpRequest hp")
-	Collection<HelpRequest> findAllHelpRequests();
-	
 	@Query("select hp from HelpRequest hp where hp.id = :id")
 	HelpRequest findOneHelpRequestById(@Param("id") int id);
 
-	@Query("select learner from Learner learner where learner.userAccount.username =:username")
-	Learner findByName(String username);
-	
-	@Query("select h.learner.id from HelpRequest h where h.id = :id")
+	@Query("select hp.learner.id from HelpRequest hp where hp.id = :id")
 	Integer findLearnerByHelpRequestId(@Param("id") int id);
+	
+	@Query("select hp from HelpRequest hp where hp.learner.id = :id")
+	Collection<HelpRequest> findManyHelpRequestsByLearner(@Param("id") int id);
 	
 }

@@ -50,7 +50,8 @@ public class LearnerHelpRequestListService implements AbstractListService<Learne
 		
 		Collection<HelpRequest> result;
 
-		result = this.repository.findAllHelpRequests();
+		final int learnerId = request.getPrincipal().getActiveRoleId();
+		result = this.repository.findManyHelpRequestsByLearner(learnerId);
 		
 		return result;
 	}
@@ -61,7 +62,7 @@ public class LearnerHelpRequestListService implements AbstractListService<Learne
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "initDate", "finishDate", "budget", "status");
+		request.unbind(entity, model, "ticker", "initDate", "finishDate", "budget", "status");
 	}
 
 }

@@ -28,7 +28,7 @@ public interface AuthenticatedPostRepository extends AbstractRepository {
 	@Query("select a from Post a where a.id = :id")
 	Post findOnePostById(@Param("id") int id);
 	
-	@Query("select a from Post a where TO_DAYS(current_date()) - TO_DAYS(a.instantiationMoment) < 730")
+	@Query("select a from Post a where TO_DAYS(current_date()) - TO_DAYS(a.instantiationMoment) < 30")
 	Collection<Post> findAllPosts();
 	
 	@Query("select c from Configuration c")
