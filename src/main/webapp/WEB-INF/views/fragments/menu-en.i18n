@@ -25,8 +25,8 @@ master.menu.anonymous.ernesto-favourite-link = 29560995S: Gutierrez Contreras, E
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.dashboard = Dashboard
-master.menu.administrator.configuration=Configuration
+master.menu.administrator.view-dashboard = Dashboard
+master.menu.administrator.view-configuration = Configuration
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
