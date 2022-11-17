@@ -13,7 +13,8 @@ any.course.form.label.caption = Titulo:
 any.course.form.label.abstractText = Texto descriptivo:
 any.course.form.label.cost = Precio:
 any.course.form.label.hyperlink = Hyperlink: 
-any.course.form.label.list-theory-tutorial = Tutorial de teoria
+any.course.form.label.list-theory-tutorial = Tutorial de Teoria
+any.course.form.label.list-lab-tutorial = Tutorial de Laboratorio
 
 any.course.list.label.caption = Titulo
 any.course.list.label.abstractText = Texto descriptivo
