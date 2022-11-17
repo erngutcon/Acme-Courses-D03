@@ -50,7 +50,8 @@ public class TeacherHelpRequestListService implements AbstractListService<Teache
 		
 		Collection<HelpRequest> result;
 
-		result = this.repository.findAllHelpRequests();
+		final int teacherId = request.getPrincipal().getActiveRoleId();
+		result = this.repository.findManyHelpRequestsByTeacher(teacherId);
 		
 		return result;
 	}

@@ -51,4 +51,7 @@ public interface TeacherHelpRequestRepository extends AbstractRepository {
 	@Query("select h.teacher.id from HelpRequest h where h.id = :id")
 	Integer findTeacherByHelpRequestId(@Param("id")  int id);
 	
+	@Query("select hp from HelpRequest hp where hp.teacher.id = :id")
+	Collection<HelpRequest> findManyHelpRequestsByTeacher(@Param("id") int id);
+	
 }

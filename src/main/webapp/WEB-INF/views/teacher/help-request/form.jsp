@@ -10,6 +10,7 @@
 - they accept any liabilities with respect to them.
 --%>
 
+
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,4 +25,5 @@
 	<acme:input-textbox code="teacher.help-request.form.label.status" path="status" readonly="true"/>
 	<acme:input-textbox code="teacher.help-request.form.label.budget" path="budget" readonly="true"/>
 	<acme:input-url code="teacher.help-request.form.label.hyperlink" path="hyperlink" readonly="true"/>
+	<acme:button code="teacher.help-request.form.label.show-learner" action="/any/user-account/show?id=${learnerId}"/>
 </acme:form>
