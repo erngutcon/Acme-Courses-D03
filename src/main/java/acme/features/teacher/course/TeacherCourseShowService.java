@@ -75,10 +75,10 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		final Money  moneyTheoryTutorials = this.convertToLocalCurrencyAndSum(priceTheoryTutorials);
 		final Money moneyLabTutorials = this.convertToLocalCurrencyAndSum(priceLabTutorials);
 		
-		final Money total = new Money();
-		total.setCurrency(moneyTheoryTutorials.getCurrency());
-		total.setAmount(moneyTheoryTutorials.getAmount()+moneyLabTutorials.getAmount());
-		model.setAttribute("totalPrice", total);
+		final Money totalPrice = new Money();
+		totalPrice.setCurrency(moneyTheoryTutorials.getCurrency());
+		totalPrice.setAmount(moneyTheoryTutorials.getAmount()+moneyLabTutorials.getAmount());
+		model.setAttribute("cost", totalPrice);
 		
 		
 

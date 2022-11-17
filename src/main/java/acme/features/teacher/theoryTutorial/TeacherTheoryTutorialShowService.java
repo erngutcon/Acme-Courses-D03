@@ -25,12 +25,15 @@ public class TeacherTheoryTutorialShowService implements AbstractShowService<Tea
 		assert request != null;
 
 		boolean result;
-		int id;
+		int theoryTutorialId;
 		TheoryTutorial theoryTutorial;
-		
-		id = request.getModel().getInteger("id");
-		theoryTutorial = this.repository.findOneTheoryTutorialById(id);
-		result = theoryTutorial != null && this.repository.findTeacherByTheoryTutorialId(id) == request.getPrincipal().getActiveRoleId();
+		boolean isOwner;
+
+		theoryTutorialId = request.getModel().getInteger("id");
+		theoryTutorial = this.repository.findOneTheoryTutorialById(theoryTutorialId);
+		final Integer teacher = this.repository.findTeacherByTheoryTutorialId(theoryTutorialId);
+		isOwner = teacher == request.getPrincipal().getActiveRoleId();
+		result = theoryTutorial != null && isOwner;
 
 		return result;
 	}

@@ -20,7 +20,7 @@
 		width="50%" />
 	<acme:list-column code="any.blink.list.label.instantiation-moment"
 		path="instantiationMoment" width="20%" />
-	<acme:list-column code="any.chirp.list.label.author-alias" path="authorAlias"
+	<acme:list-column code="any.blink.list.label.author-alias" path="authorAlias"
 		width="20%" />
 </acme:list>
 

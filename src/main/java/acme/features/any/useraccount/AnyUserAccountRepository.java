@@ -15,6 +15,7 @@ package acme.features.any.useraccount;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.framework.entities.UserAccount;
@@ -25,7 +26,7 @@ public interface AnyUserAccountRepository extends AbstractRepository {
 
 	
 	@Query("select ua from UserAccount ua where ua.id = :id")
-	UserAccount findOneUserAccountById(int id);
+	UserAccount findOneUserAccountById(@Param("id") int id);
 	
 	
 	@Query("select ua from UserAccount ua join ua.roles r where ua.enabled = true and (type(r) = Teacher or type(r) = Learner) and Administrator not in (select type(r) from UserAccount ua2 join ua2.roles r where ua2.id = ua.id)")

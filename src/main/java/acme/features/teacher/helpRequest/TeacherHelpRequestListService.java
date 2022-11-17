@@ -61,7 +61,7 @@ public class TeacherHelpRequestListService implements AbstractListService<Teache
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "initDate", "finishDate", "budget", "status");
+		request.unbind(entity, model, "ticker","initDate", "finishDate", "budget", "status");
 	}
 
 }

@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.HelpRequest;
@@ -27,27 +28,27 @@ import acme.roles.Teacher;
 public interface TeacherHelpRequestRepository extends AbstractRepository {
 	
 	@Query("select teacher from Teacher teacher where teacher.userAccount.id =:id")
-	Teacher findTeacherByUserId(int id);
+	Teacher findTeacherByUserId(@Param("id")  int id);
 	
 	@Query("select teacher from Teacher teacher where teacher.id =:id")
-	Teacher findTeacherById(int id);
+	Teacher findTeacherById(@Param("id")  int id);
 	
 	@Query("select teacher from Teacher teacher")
 	List<Teacher> findAllTeachers();
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
-	UserAccount findOneUserAccountById(int id);
+	UserAccount findOneUserAccountById(@Param("id")  int id);
 
 	@Query("select hp from HelpRequest hp")
 	Collection<HelpRequest> findAllHelpRequests();
 	
 	@Query("select hp from HelpRequest hp where hp.id = :id")
-	HelpRequest findOneHelpRequestById(int id);
+	HelpRequest findOneHelpRequestById(@Param("id")  int id);
 
 	@Query("select teacher from Teacher teacher where teacher.userAccount.username =:username")
 	Teacher findByName(String username);
 	
 	@Query("select h.teacher.id from HelpRequest h where h.id = :id")
-	Integer findTeacherByHelpRequestId(int id);
+	Integer findTeacherByHelpRequestId(@Param("id")  int id);
 	
 }

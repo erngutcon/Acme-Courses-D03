@@ -16,6 +16,6 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="teacher.lab-tutorial.list.label.title" path="title" width="20%"/>	
-	<acme:list-column code="teacher.lab-tutorial.list.label.abstractText" path="abstractText" width="80%"/>
+	<acme:list-column code="teacher.lab-tutorial.list.label.title" path="title" width="30%"/>	
+	<acme:list-column code="teacher.lab-tutorial.list.label.abstractText" path="abstractText" width="70%"/>
 </acme:list>
