@@ -20,3 +20,5 @@ learner.help-request.form.label.budget = Budget
 learner.help-request.form.label.statement = Statement
 learner.help-request.form.label.hyperlink = Hyperlink
 learner.help-request.form.label.status = Status
+
+any.user-account.form.label.teacher = Teacher

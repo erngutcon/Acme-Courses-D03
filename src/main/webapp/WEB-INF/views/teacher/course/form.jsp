@@ -22,10 +22,10 @@
 	<acme:input-textbox code="teacher.course.form.label.cost" path="cost"/>
 	<acme:input-url code="teacher.course.form.label.hyperlink" path="hyperlink"/>	
 	<jstl:if test="${existsTheoryTutorial eq true}">
-		<acme:button code="teacher.course.form.lab.list-theory-tutorial" action="/teacher/theory-tutorial/list?masterId=${id}"/>
+		<acme:button code="any.course.form.label.list-theory-tutorial" action="/any/theory-tutorial/list?masterId=${id}"/>
 	</jstl:if>	
 	<jstl:if test="${existsLabTutorial eq true}">
-		<acme:button code="teacher.course.form.lab.list-lab-tutorial" action="/teacher/lab-tutorial/list?masterId=${id}"/>
+		<acme:button code="any.course.form.label.list-lab-tutorial" action="/any/lab-tutorial/list?masterId=${id}"/>
 	</jstl:if>	
 </acme:form>
 

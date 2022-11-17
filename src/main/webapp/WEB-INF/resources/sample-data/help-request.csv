@@ -14,3 +14,4 @@ help-request-12,DENIED,HRQ-012,Legal,USD 10.0,2022/09/01 10:00,2022/10/02 11:00,
 help-request-13,DENIED,HRQ-013,Legal,EUR 10.0,2022/09/01 10:00,2022/10/03 11:00,2022/12/01 12:00,https://www.link13.com,learner-02,teacher-02
 help-request-14,DENIED,HRQ-014,Legal,USD 11.0,2022/09/01 10:00,2022/10/04 11:00,2022/12/01 12:00,https://www.link14.com,learner-03,teacher-03
 help-request-15,ACCEPTED,HRQ-015,Legal,USD 10.0,2022/08/19 10:00,2022/08/19 11:00,2022/08/19 11:00,https://www.link15.com,learner-04,teacher-04
+help-request-16,PROPOSED,HRQ-016,Legal,USD 8.0,2022/08/19 10:00,2022/08/19 11:00,2022/08/19 11:00,https://www.link16.com,learner-04,teacher-04
