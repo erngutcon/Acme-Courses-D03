@@ -1,4 +1,4 @@
-package acme.checker;
+package acme.spam;
 
 import java.util.ArrayList;
 import java.util.Arrays;

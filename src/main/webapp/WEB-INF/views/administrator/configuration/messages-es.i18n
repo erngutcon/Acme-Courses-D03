@@ -12,3 +12,9 @@ administrator.configuration.configuration.form.label.currency= Divisa
 administrator.configuration.configuration.form.label.acceptedCurrencies= Divisas aceptadas
 administrator.configuration.configuration.form.label.spamRecords= Listado de Spam 
 
+administrator.configuration.configuration.form.label.spamRecords.term = Termino
+administrator.configuration.configuration.form.label.spamRecords.weight = Peso
+administrator.configuration.configuration.form.label.spamRecords.booster = Potenciador
+
+administrator.configuration.configuration.form.label.spamThreshold = Umbral de spam
+administrator.configuration.configuration.form.label.spamBoosterFactor = Termino potenciador

@@ -1,4 +1,4 @@
-package acme.checker;
+package acme.spam;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
