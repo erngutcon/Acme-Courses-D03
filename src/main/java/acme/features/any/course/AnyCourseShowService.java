@@ -78,8 +78,8 @@ public class AnyCourseShowService implements AbstractShowService<Any, Course>{
 		
 		final Collection<TheoryTutorial> theoryTutorials  = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
 		final Collection<LabTutorial> labTutorials  = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
-		if(theoryTutorials.size()==1) existsTheoryTutorial=true;
-		if(labTutorials.size()==1) existsLabTutorial=true;
+		if(theoryTutorials.size()!=0) existsTheoryTutorial=true;
+		if(labTutorials.size()!=0) existsLabTutorial=true;
 		model.setAttribute("existsTheoryTutorial", existsTheoryTutorial);
 		model.setAttribute("existsLabTutorial", existsLabTutorial);
 		
