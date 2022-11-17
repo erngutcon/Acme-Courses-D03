@@ -54,7 +54,7 @@ public class BlinkListService implements AbstractListService<Any, Blink> {
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "instantiationMoment","caption","author","message","email");
+		request.unbind(entity, model, "instantiationMoment","caption","authorAlias","message","email");
 	}
 
 

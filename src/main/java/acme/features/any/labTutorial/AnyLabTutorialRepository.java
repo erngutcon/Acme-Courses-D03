@@ -24,13 +24,13 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyLabTutorialRepository extends AbstractRepository {
 
-	@Query("select i from LabTutorial i where i.id = :id")
+	@Query("select lt from LabTutorial lt where lt.id = :id")
 	LabTutorial findOneLabTutorialById(int id);
 	
-	@Query("select i from LabTutorial i")
+	@Query("select lt from LabTutorial lt")
 	List<LabTutorial> findAllLabTutorials();
 
-	@Query("select i from Course c, Register r, LabTutorial i where t.id = r.course.id and r.labTutorial.id = i.id and t.id = :id")
+	@Query("select lt from Course c, Register r, LabTutorial lt where lt.id = r.course.id and r.labTutorial.id = lt.id and c.id = :id")
 	Collection<LabTutorial> findManyLabTutorialsByCourseId(int id);
 	
 	

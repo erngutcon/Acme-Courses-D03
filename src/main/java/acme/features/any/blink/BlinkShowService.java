@@ -55,7 +55,7 @@ public class BlinkShowService implements AbstractShowService<Any, Blink> {
 		assert entity!=null;
 		assert model!=null;
 		
-		request.unbind(entity, model, "instantiationMoment","caption","author","message","email");
+		request.unbind(entity, model, "instantiationMoment","caption","authorAlias","message","email");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", true);
 		model.setAttribute("showmoment", true);

@@ -15,32 +15,32 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(i) from TheoryTutorial i")
 	Integer totalNumberOfTheoryTutorials();
 
-	@Query("select avg(i.retailPrice.amount), i.retailPrice.currency from TheoryTutorial i group by i.retailPrice.currency")
+	@Query("select avg(i.cost.amount), i.cost.currency from TheoryTutorial i group by i.cost.currency")
 	List<Object> averageCostOfTheoryTutorials();
 
-	@Query("select stddev(i.retailPrice.amount), i.retailPrice.currency from TheoryTutorial i group by i.retailPrice.currency")
+	@Query("select stddev(i.cost.amount), i.cost.currency from TheoryTutorial i group by i.cost.currency")
 	List<Object> deviationCostOfTheoryTutorials();
 	
-	@Query("select min(i.retailPrice.amount), i.retailPrice.currency from TheoryTutorial i group by i.retailPrice.currency")
+	@Query("select min(i.cost.amount), i.cost.currency from TheoryTutorial i group by i.cost.currency")
 	List<Object> minimumCostOfTheoryTutorials();
 
-	@Query("select max(i.retailPrice.amount), i.retailPrice.currency from TheoryTutorial i group by i.retailPrice.currency")
+	@Query("select max(i.cost.amount), i.cost.currency from TheoryTutorial i group by i.cost.currency")
 	List<Object> maximumCostOfTheoryTutorials();
 	
 	// Manage LabTutorial
 	@Query("select count(i) from LabTutorial i")
 	Integer totalNumberOfLabTutorials();
 	
-	@Query("select avg(i.retailPrice.amount), i.retailPrice.currency from LabTutorial i group by i.retailPrice.currency")
+	@Query("select avg(i.cost.amount), i.cost.currency from LabTutorial i group by i.cost.currency")
 	List<Object> averageCostOfLabTutorials();
 
-	@Query("select stddev(i.retailPrice.amount), i.retailPrice.currency from LabTutorial i group by i.retailPrice.currency")
+	@Query("select stddev(i.cost.amount), i.cost.currency from LabTutorial i group by i.cost.currency")
 	List<Object> deviationCostOfLabTutorials();
 
-	@Query("select min(i.retailPrice.amount), i.retailPrice.currency from LabTutorial i group by i.retailPrice.currency")
+	@Query("select min(i.cost.amount), i.cost.currency from LabTutorial i group by i.cost.currency")
 	List<Object> minimumCostOfLabTutorials();
 	
-	@Query("select max(i.retailPrice.amount), i.retailPrice.currency from LabTutorial i group by i.retailPrice.currency")
+	@Query("select max(i.cost.amount), i.cost.currency from LabTutorial i group by i.cost.currency")
 	List<Object> maximumCostOfLabTutorials();
 	
 	// Manage TOTALS
