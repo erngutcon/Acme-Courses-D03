@@ -31,7 +31,7 @@ public interface AnyLabTutorialRepository extends AbstractRepository {
 	@Query("select lt from LabTutorial lt")
 	List<LabTutorial> findAllLabTutorials();
 
-	@Query("select lt from Course c, Register r, LabTutorial lt where lt.id = r.course.id and r.labTutorial.id = lt.id and c.id = :id")
+	@Query("select lt from Course c, Register r, LabTutorial lt where c.id = r.course.id and r.labTutorial.id = lt.id and c.id = :id")
 	Collection<LabTutorial> findManyLabTutorialsByCourseId(@Param("id") int id);
 	
 	

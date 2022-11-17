@@ -8,11 +8,13 @@
 # purposes.  The copyright owner does not offer teacher warranties or representations, nor do
 # they accept teacher liabilities with respect to them.
 
-teacher.theory-tutorial.form.label.ticker = Ticker:
-teacher.theory-tutorial.form.label.caption = Título:
-teacher.theory-tutorial.form.label.abstractText = Texto:
-teacher.theory-tutorial.form.label.cost = Coste:
-teacher.theory-tutorial.form.label.hyperlink = Hyperlink: 
+teacher.course.form.label.ticker = Ticker:
+teacher.course.form.label.caption = Título:
+teacher.course.form.label.abstractText = Texto:
+teacher.course.form.label.cost = Coste:
+teacher.course.form.label.hyperlink = Hyperlink: 
+teacher.course.form.lab.list-teacher = Mis Tutoriales de Teoria
+teacher.course.form.lab.list-teacher = Mis Tutoriales de Laboratorio
 
-teacher.theory-tutorial.list.label.caption = Título
-teacher.theory-tutorial.list.label.abstractText = Texto
+teacher.course.list.label.caption = Título
+teacher.course.list.label.abstractText = Texto

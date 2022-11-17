@@ -31,9 +31,9 @@ public interface TeacherLabTutorialRepository extends AbstractRepository {
 	
 	@Query("SELECT c FROM Course c WHERE c.id = :id")
 	Course findOneCourseById(@Param("id") int id);
-
-//	@Query("SELECT t FROM Teacher t, Register r, Course c WHERE t.id = r.theoryTutorial.id AND c.teacher.id = t.id AND c.id = r.course.id AND t.id = :id")
-//	Collection<TheoryTutorial> findManyTheoryTutorialsByTeacherId(@Param("id") int id);
+	
+	@Query("select lt from Course c, Register r, LabTutorial lt where c.id = r.course.id and r.labTutorial.id = lt.id and c.id = :id")
+	Collection<LabTutorial> findManyLabTutorialsByCourseId(@Param("id") int id);
 	
 	@Query("SELECT lt FROM Teacher t, Course c, Register r, LabTutorial lt WHERE t.id = c.teacher.id AND c.id = r.course.id AND r.labTutorial.id = lt.id AND t.id = :id")
 	Collection<LabTutorial> findManyLabTutorialsByTeacherId(@Param("id") int id);
