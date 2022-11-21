@@ -29,7 +29,6 @@
 			<acme:menu-suboption
 				code="master.menu.anonymous.ernesto-favourite-link"
 				action="https://www.twitch.tv/" />
-			<acme:menu-separator/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -44,7 +43,7 @@
 			<acme:menu-suboption code="master.menu.administrator.view-dashboard" action="/administrator/administrator-dashboard/show"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.list-blink" action="/any/blink/list"/>
